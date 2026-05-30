@@ -13,7 +13,7 @@ export default {
   },
   menu: {
     title: "Our Menu",
-    subtitle: "Fresh, vibrant, and made to order.",
+    subtitle: "Fresh, vibrant, and made to order — every item crafted from scratch.",
     categories: {
       all: "All",
       sushi: "Sushi & Sashimi",
@@ -23,23 +23,23 @@ export default {
     items: {
       ninjaStar: {
         name: "Ninja Star Bowl",
-        desc: "Colourful sushi bowl with salmon, nori, rice, avocado, and tobiko."
+        desc: "Crispy tempura shrimp and smoked salmon over seasoned rice, drizzled with signature Ninja Sauce."
       },
       salmonSashimi: {
         name: "Thick-Cut Salmon Sashimi",
-        desc: "Fresh plump salmon sashimi served on shiso leaves."
+        desc: "Fresh plump salmon sashimi served on shiso leaves — pure, silky and richly flavoured."
       },
       seafoodSalad: {
         name: "Ocean Bloom Salad",
-        desc: "Delicate shrimp and seafood salad garnished with edible flowers."
+        desc: "Delicate shrimp and seafood salad garnished with edible flowers imported directly from Japan."
       },
       hamachi: {
         name: "Hamachi Sashimi",
-        desc: "Premium yellowtail sashimi on a red lacquer plate."
+        desc: "Premium yellowtail sashimi on a red lacquer plate — just like you'd find in a Tokyo izakaya."
       },
       tunaBowl: {
-        name: "Tuna Blossom Bowl",
-        desc: "Fresh tuna bowl with assorted sushi rolls on the side."
+        name: "Maguro & Ikura Don",
+        desc: "Bluefin tuna and salmon roe over seasoned rice — a salty-sweet pop of ocean flavour."
       }
     },
     tags: {
@@ -50,23 +50,31 @@ export default {
   },
   about: {
     title: "The Izakaya Experience",
-    p1: "Tucked into a historic brick building in Stratford, Hungry Ninja brings the vibrant energy of a Japanese izakaya to Ontario.",
-    p2: "Under the warm glow of red paper lanterns, we serve fresh, colourful dishes designed to be shared. From delicate hand-rolled nori wraps to plump salmon sashimi, every bite is crafted with care.",
-    p3: "Come for the food, stay for the drinks, and enjoy the lively, welcoming atmosphere."
+    p1: "Tucked into a historic brick building at 46 Ontario St, Hungry Ninja brings the spirit of a Japanese izakaya to Stratford's vibrant downtown. Owner Maiko Onuma — a classically trained pianist from Tokyo — channels the same precision and passion into every dish she creates.",
+    p2: "Under the warm glow of red paper lanterns, we serve fresh, colourful dishes made entirely from scratch. Japanese basil and edible flowers are flown in directly from Japan. Ramen broth is simmered in-house for hours. Everything is made to order, so allow yourself time to savour it.",
+    p3: "Dine in at one of our cosy tables, or enjoy your meal at the waterfront picnic tables just steps away.",
+    badge1: "4.6 ★ on Google",
+    badge2: "Made from scratch",
+    badge3: "Wheelchair accessible"
   },
   reviews: {
     title: "What Our Guests Say",
-    subtitle: "Real stories from real visitors."
+    subtitle: "Real stories from real visitors — 4.6 stars on Google.",
+    rating: "4.6"
   },
   footer: {
     title: "Visit Hungry Ninja",
     location: "Location",
-    address: "Stratford, ON, Canada",
-    hours: "Approximate Hours",
-    hoursMonThu: "Mon-Thu: 11:30am - 9:00pm",
-    hoursFriSat: "Fri-Sat: 11:30am - 10:00pm",
-    hoursSun: "Sun: 12:00pm - 8:00pm",
-    price: "Price: $10-$40 CAD per person",
+    address: "46 Ontario St\nStratford, ON N5A 3G8",
+    directions: "Get Directions",
+    phone: "Phone",
+    phoneNumber: "(226) 584-1630",
+    hours: "Hours",
+    hoursNote: "Hours may vary — call ahead to confirm",
+    hoursMon: "Monday: Closed",
+    hoursTueSat: "Tue – Sat: 11:30 am – 7:00 pm",
+    hoursSun: "Sunday: Closed",
+    price: "Price: $10 – $40 CAD per person",
     rights: "© 2026 Hungry Ninja. All rights reserved."
   }
 };
