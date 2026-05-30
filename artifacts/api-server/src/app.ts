@@ -3,7 +3,7 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
-import { mcpHandler } from "./mcp";
+import { mcpHandler, mcpAuthMiddleware } from "./mcp";
 
 const app: Express = express();
 
@@ -31,6 +31,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
-app.post("/api/mcp", mcpHandler);
+app.post("/api/mcp", mcpAuthMiddleware, mcpHandler);
 
 export default app;
