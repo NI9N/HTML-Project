@@ -76,7 +76,7 @@ export function Footer() {
             <div className="mt-5 rounded-lg overflow-hidden border border-white/10">
               <iframe
                 title="Hungry Ninja on Google Maps"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2893.3!2d-80.9847!3d43.3701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882f3a1f1b4b4b4b%3A0x0!2s46+Ontario+St%2C+Stratford%2C+ON+N5A+3G8!5e0!3m2!1sen!2sca!4v1"
+                src="https://maps.google.com/maps?q=46+Ontario+St,+Stratford,+ON+N5A+3G8,+Canada&output=embed&z=16"
                 width="100%"
                 height="140"
                 style={{ border: 0 }}
