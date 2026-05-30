@@ -16,10 +16,8 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm border-destructive-border",
         outline:
-          // @replit Shows the background color of whatever card / sidebar / accent background it is inside of.
-          // Inherits the current text color. Uses shadow-xs. no shadow on active
-          // No hover state
-          " border [border-color:var(--button-outline)] shadow-xs active:shadow-none ",
+          // Secondary button per design guide: transparent bg, 2px solid ink black
+          "border-2 border-[#1A1A1A] bg-transparent text-[#1A1A1A] shadow-xs active:shadow-none hover:bg-[#1A1A1A] hover:text-[#FAF8F4]",
         secondary:
           // @replit border, no hover, no shadow, secondary border.
           "border bg-secondary text-secondary-foreground border border-secondary-border ",
@@ -28,8 +26,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        // @replit changed sizes
-        default: "min-h-9 px-4 py-2",
+        // CTA button per design guide: 12px vertical, 28px horizontal padding
+        default: "min-h-10 px-7 py-3",
         sm: "min-h-8 rounded-md px-3 text-xs",
         lg: "min-h-10 rounded-md px-8",
         icon: "h-9 w-9",

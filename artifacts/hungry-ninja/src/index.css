@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@400;600;700;900&family=Black+Han+Sans&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -54,6 +54,7 @@
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
   --font-mono: var(--app-font-mono);
+  --font-display: var(--app-font-display);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -87,21 +88,26 @@
   /* Primary: Lantern Red (#D42B2B) */
   --primary: 0 68% 50%;
   --primary-foreground: 40 33% 97%;
+  --primary-border: 0 68% 40%;
 
-  /* Secondary: Secondary green (#3D7A4F) */
+  /* Secondary: Moss Green (#3D7A4F) */
   --secondary: 138 33% 36%;
   --secondary-foreground: 40 33% 97%;
+  --secondary-border: 138 33% 26%;
 
-  /* Muted: Wood brown (#6B4226) */
+  /* Muted: Wood Brown (#6B4226) */
   --muted: 24 47% 28%;
   --muted-foreground: 40 33% 97%;
+  --muted-border: 24 47% 18%;
 
-  /* Accent: Accent orange (#F4854A) */
+  /* Accent: Flying Fish Roe Orange (#F4854A) */
   --accent: 21 89% 62%;
   --accent-foreground: 0 0% 10%;
+  --accent-border: 21 89% 52%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 40 33% 97%;
+  --destructive-border: 0 84% 50%;
 
   --input: 0 0% 85%;
   --ring: 0 68% 50%;
@@ -111,13 +117,16 @@
   --sidebar-border: 0 0% 20%;
   --sidebar-primary: 0 68% 50%;
   --sidebar-primary-foreground: 40 33% 97%;
+  --sidebar-primary-border: 0 68% 40%;
   --sidebar-accent: 0 0% 20%;
   --sidebar-accent-foreground: 40 33% 97%;
+  --sidebar-accent-border: 0 0% 10%;
   --sidebar-ring: 0 68% 50%;
 
-  --app-font-sans: 'Inter', sans-serif;
-  --app-font-serif: 'Noto Serif JP', serif;
+  --app-font-sans: 'Noto Sans JP', 'Inter', sans-serif;
+  --app-font-serif: 'Noto Serif JP', 'Playfair Display', serif;
   --app-font-mono: Menlo, monospace;
+  --app-font-display: 'Black Han Sans', 'Anton', sans-serif;
   --radius: 0.5rem;
 }
 
@@ -158,8 +167,6 @@
   --sidebar-border: 0 0% 20%;
   --sidebar-primary: 0 68% 50%;
   --sidebar-primary-foreground: 40 33% 97%;
-  --sidebar-accent: 0 0% 20%;
-  --sidebar-accent-foreground: 40 33% 97%;
   --sidebar-ring: 0 68% 50%;
 }
 
