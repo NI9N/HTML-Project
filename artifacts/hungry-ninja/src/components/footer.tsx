@@ -10,6 +10,7 @@ export function Footer() {
     "https://www.google.com/maps/place/Hungry+Ninja/@43.3701,-80.9825,17z/data=!3m1!4b1!4m6!3m5!1s0x882f3a1f1b4b4b4b:0x0!8m2!3d43.3701!4d-80.9825!16s%2Fg%2F11c1l_9z9z";
   const MAPS_SIMPLE_URL =
     "https://maps.google.com/?q=46+Ontario+St,+Stratford,+ON+N5A+3G8";
+  const PHONE_NUMBER = "+12265841630";
 
   return (
     <footer id="visit" className="bg-[#1A1A1A] text-white pt-24 pb-8 relative overflow-hidden">
@@ -110,7 +111,7 @@ export function Footer() {
               {t("footer.phone")}
             </h4>
             <a
-              href="tel:+12265841630"
+              href={`tel:${PHONE_NUMBER}`}
               data-testid="link-phone"
               className="text-white/90 hover:text-primary transition-colors font-medium text-lg block mb-2"
             >
@@ -122,6 +123,7 @@ export function Footer() {
             <Button
               data-testid="button-reserve-footer"
               className="w-full bg-primary hover:bg-[#B02222] text-white font-bold py-6"
+              onClick={() => window.location.href = `tel:${PHONE_NUMBER}`}
             >
               {t("nav.reserve")}
             </Button>

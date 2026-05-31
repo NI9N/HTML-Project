@@ -1,0 +1,1 @@
+- [framer-motion whileInView in iframes](framer-motion-iframe.md) — whileInView + initial opacity:0 breaks in Replit preview iframes; use animate= directly on cards instead.
