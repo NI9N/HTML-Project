@@ -126,7 +126,7 @@ function StepIndicator({ step }: { step: number }) {
   return (
     <div className="flex items-center gap-0 mb-10 max-w-xs mx-auto">
       {steps.map((label, i) => (
-        <div key={i} className="flex items-center flex-1">
+        <div key={i} className={`flex items-center ${i < steps.length - 1 ? "flex-1" : ""}`}>
           <div className="flex flex-col items-center">
             <motion.div
               animate={{
