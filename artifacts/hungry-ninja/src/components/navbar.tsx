@@ -78,7 +78,7 @@ export function Navbar() {
             </button>
             
             <Button 
-              onClick={() => scrollTo("visit")} 
+              onClick={() => scrollTo("reserve")} 
               className="bg-primary hover:bg-[#B02222] text-white font-bold rounded-md px-6"
               data-testid="btn-reserve-desktop"
             >
@@ -120,7 +120,7 @@ export function Navbar() {
             </button>
           ))}
           <Button 
-            onClick={() => scrollTo("visit")} 
+            onClick={() => scrollTo("reserve")} 
             className="w-full bg-primary hover:bg-[#B02222] text-white font-bold rounded-md mt-2"
             data-testid="btn-reserve-mobile"
           >
