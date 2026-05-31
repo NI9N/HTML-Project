@@ -124,7 +124,7 @@ function StepIndicator({ step }: { step: number }) {
   const { t } = useTranslation();
   const steps = [t("reserve.step1Label"), t("reserve.step2Label"), t("reserve.step3Label")];
   return (
-    <div className="flex items-center gap-0 mb-10">
+    <div className="flex items-center gap-0 mb-10 max-w-xs mx-auto">
       {steps.map((label, i) => (
         <div key={i} className="flex items-center flex-1">
           <div className="flex flex-col items-center">
