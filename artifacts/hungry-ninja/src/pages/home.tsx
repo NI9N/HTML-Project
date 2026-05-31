@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { MenuSection } from "@/components/menu";
 import { Reviews } from "@/components/reviews";
-import { Reservation } from "@/components/reservation";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <About />
       <MenuSection />
       <Reviews />
-      <Reservation />
       <Footer />
     </div>
   );

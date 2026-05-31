@@ -88,7 +88,14 @@ export default {
     successDesc: "We've received your reservation and will see you soon.",
     another: "Make Another Reservation",
     errorTitle: "Something went wrong",
-    errorDesc: "Please try again or call us directly."
+    errorDesc: "Please try again or call us directly.",
+    step1Label: "When",
+    step2Label: "Who",
+    step3Label: "Confirm",
+    next: "Next",
+    back: "Back",
+    reviewTitle: "Reservation Summary",
+    backHome: "Back to Home"
   },
   footer: {
     title: "Visit Hungry Ninja",

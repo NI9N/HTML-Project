@@ -88,7 +88,14 @@ export default {
     successDesc: "我们已收到您的预订，期待与您相聚。",
     another: "再次预订",
     errorTitle: "提交失败",
-    errorDesc: "请重试或直接致电联系我们。"
+    errorDesc: "请重试或直接致电联系我们。",
+    step1Label: "时间",
+    step2Label: "信息",
+    step3Label: "确认",
+    next: "下一步",
+    back: "返回",
+    reviewTitle: "预订摘要",
+    backHome: "返回首页"
   },
   footer: {
     title: "访问 Hungry Ninja",

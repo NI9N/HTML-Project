@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { LanternIcon } from "./decorative";
+import { useLocation } from "wouter";
 
 export function Navbar() {
   const { t, i18n } = useTranslation();
+  const [, navigate] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -78,7 +80,7 @@ export function Navbar() {
             </button>
             
             <Button 
-              onClick={() => scrollTo("reserve")} 
+              onClick={() => navigate("/reserve")} 
               className="bg-primary hover:bg-[#B02222] text-white font-bold rounded-md px-6"
               data-testid="btn-reserve-desktop"
             >
@@ -120,7 +122,7 @@ export function Navbar() {
             </button>
           ))}
           <Button 
-            onClick={() => scrollTo("reserve")} 
+            onClick={() => navigate("/reserve")} 
             className="w-full bg-primary hover:bg-[#B02222] text-white font-bold rounded-md mt-2"
             data-testid="btn-reserve-mobile"
           >
