@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+.claude/
+.playwright-mcp/
+hungry-ninja-fullpage.png
+hungry-ninja-mobile-viewport.png
+hungry-ninja-mobile.png
