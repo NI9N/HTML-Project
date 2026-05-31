@@ -30,3 +30,8 @@ externalPort = 80
 [[ports]]
 localPort = 18847
 externalPort = 3000
+
+[userenv]
+
+[userenv.shared]
+GITHUB_TOKEN = "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"
