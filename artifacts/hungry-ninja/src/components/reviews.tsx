@@ -4,40 +4,70 @@ import { Star, ExternalLink } from "lucide-react";
 
 const REVIEWS = [
   {
+    id: 8,
+    rating: 5,
+    text: "Food and drinks were amazing!!! I would come back to Stratford just for this place alone! I had the yakisoba, lemonade, mochi and a mocktail — and it was affordable for what I got (and as a broke 18-year-old)!",
+    author: "charlize"
+  },
+  {
+    id: 9,
+    rating: 5,
+    text: "Since it was our first time dining at a Japanese restaurant, the server explained the menu really well and made it easy to choose. We ordered the veggie ramen with chicken, chicken teriyaki sushi, miso soup and the yuzu spritzer — everything was absolutely delicious and full of flavour!",
+    author: "Pawneet Namu"
+  },
+  {
+    id: 10,
+    rating: 5,
+    text: "I love going here and bringing my friends. I literally cannot recommend this place enough — it's heaven for me.",
+    author: "Tyson Bauld"
+  },
+  {
+    id: 11,
+    rating: 5,
+    text: "The best ebiten udon I have ever tried.",
+    author: "Elena Kapshutar"
+  },
+  {
+    id: 7,
+    rating: 5,
+    text: "Food simply outstanding — by far the best meal I've had in Stratford, deserving of a Michelin star. The Ninja Bowls are full of umami flavours. It's essentially a one-woman show (with an all-purpose sidekick Ninja helping along) in the kitchen, so allow 90+ minutes as everything is made from scratch.",
+    author: "JohnK"
+  },
+  {
     id: 1,
     rating: 5,
-    text: "Food simply outstanding — by far the best meal I've had in Stratford. Deserving of a Michelin star. The Ninja Bowls are full of umami flavours, packed with fresh and well-portioned ingredients.",
-    author: "Google Reviewer"
+    text: "The owner had Hamachi and blue fin tuna sashimi available, and it was just like when I had it in Japan — they even had the Highball drink, a Japanese staple for izakayas. A great spot for Japanese food in Stratford.",
+    author: "Dustin Nguyen"
   },
   {
     id: 2,
     rating: 5,
-    text: "The Ninja Star bowl was delicious — loved the crispy tempura shrimp and smoked salmon paired with ninja sauce!",
-    author: "Cailey"
+    text: "Small, cozy space with delicious food and friendly service! They were very accommodating with our group of 10. The Ninja Star bowl was delicious — loved the crispy tempura shrimp and smoked salmon paired with the ninja sauce!",
+    author: "Cailey Huang"
   },
   {
     id: 3,
     rating: 5,
-    text: "The owner had Hamachi and blue fin tuna sashimi available — it was just like having it in Japan. They even had the Highball drink, a Japanese staple for izakayas.",
-    author: "Dustin Nguyen"
+    text: "Loved getting lunch here, service was friendly and the food was fresh and flavorful. The Ninja Bomb bowl with shrimp tempura and salmon was delicious and filling. Definitely recommend!",
+    author: "Elisa J."
   },
   {
     id: 4,
     rating: 5,
-    text: "I was initially hesitant to visit this small Japanese restaurant, but I was absolutely amazed! The staff are incredibly approachable and helpful in guiding us through the menu.",
-    author: "Google Reviewer"
+    text: "Absolutely PHENOMENAL. The staff was so lovely and sweet, and happy to talk us through the menu! We ordered to go and the food was all freshly made for us, and was soooo delectable. Can't recommend enough!",
+    author: "sparklyclarke"
   },
   {
     id: 5,
     rating: 5,
-    text: "Absolutely PHENOMENAL. The staff was so lovely and sweet. The food was all freshly made and soooo delectable! Can't recommend enough!",
-    author: "sparklyclarke"
+    text: "I was hesitant to visit this small Japanese restaurant, but I was absolutely amazed! We ordered the Unagi Bowl and Tofu Bowl with the Spicy Ninja Sauce, and tried the Spicy Salmon. Everything was incredibly fresh and delicious. Highly recommend this hidden gem!",
+    author: "Paige Collins"
   },
   {
     id: 6,
-    rating: 4,
-    text: "Delicious bowl of Tonkatsu Ramen. Friendly staff. Will definitely come back.",
-    author: "C McCarthy"
+    rating: 5,
+    text: "Quite literally the best meal we'd had since moving to Stratford. I ordered the spicy salmon roll, miso soup & salmon sashimi while my partner had the pork belly noodles. The service was phenomenal and presentation + quality was unmatched.",
+    author: "Mal Taylor"
   }
 ];
 

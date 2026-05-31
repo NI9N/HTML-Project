@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { LanternIcon } from "./decorative";
+import { useLocation } from "wouter";
 
 export function Navbar() {
   const { t, i18n } = useTranslation();
+  const [, navigate] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -17,10 +19,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleLanguage = () => {
-    const nextLng = i18n.language === "en" ? "zh" : "en";
-    i18n.changeLanguage(nextLng);
-  };
+  const langs: [string, string][] = [
+    ["en", "EN"],
+    ["zh", "中"],
+    ["ja", "日"],
+  ];
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
@@ -69,16 +72,21 @@ export function Navbar() {
           ))}
           
           <div className="flex items-center gap-4 border-l border-white/20 pl-4">
-            <button 
-              onClick={toggleLanguage}
-              className="text-white/80 hover:text-white font-medium text-sm transition-colors"
-              data-testid="btn-toggle-lang"
-            >
-              {i18n.language === "en" ? "中文" : "EN"}
-            </button>
+            <div className="flex items-center gap-2.5">
+              {langs.map(([code, label]) => (
+                <button
+                  key={code}
+                  onClick={() => i18n.changeLanguage(code)}
+                  className={`font-medium text-sm transition-colors ${i18n.language === code ? "text-white" : "text-white/50 hover:text-white/80"}`}
+                  data-testid={`btn-lang-${code}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
             
             <Button 
-              onClick={() => scrollTo("visit")} 
+              onClick={() => navigate("/reserve")} 
               className="bg-primary hover:bg-[#B02222] text-white font-bold rounded-md px-6"
               data-testid="btn-reserve-desktop"
             >
@@ -89,13 +97,18 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-4">
-          <button 
-            onClick={toggleLanguage}
-            className="text-white/80 hover:text-white font-medium text-sm transition-colors"
-            data-testid="btn-toggle-lang-mobile"
-          >
-            {i18n.language === "en" ? "中文" : "EN"}
-          </button>
+          <div className="flex items-center gap-2.5">
+            {langs.map(([code, label]) => (
+              <button
+                key={code}
+                onClick={() => i18n.changeLanguage(code)}
+                className={`font-medium text-sm transition-colors ${i18n.language === code ? "text-white" : "text-white/50 hover:text-white/80"}`}
+                data-testid={`btn-lang-mobile-${code}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
           <button 
             className="text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -120,7 +133,7 @@ export function Navbar() {
             </button>
           ))}
           <Button 
-            onClick={() => scrollTo("visit")} 
+            onClick={() => navigate("/reserve")} 
             className="w-full bg-primary hover:bg-[#B02222] text-white font-bold rounded-md mt-2"
             data-testid="btn-reserve-mobile"
           >

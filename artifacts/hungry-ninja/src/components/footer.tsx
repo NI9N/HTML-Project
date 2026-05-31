@@ -1,16 +1,30 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Phone, Instagram, Facebook } from "lucide-react";
+import { MapPin, Clock, Phone, Instagram, Utensils, ShoppingBag, Car, CreditCard, Accessibility } from "lucide-react";
 import { LanternIcon } from "./decorative";
+
+function TikTokIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M16.5 3a5.6 5.6 0 0 0 4.5 4.9v3a8.6 8.6 0 0 1-4.5-1.3v6.2a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.1v3.1a3.3 3.3 0 1 0 2.3 3.1V3h3.1Z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   const { t } = useTranslation();
 
-  const GOOGLE_MAPS_URL =
-    "https://www.google.com/maps/place/Hungry+Ninja/@43.3701,-80.9825,17z/data=!3m1!4b1!4m6!3m5!1s0x882f3a1f1b4b4b4b:0x0!8m2!3d43.3701!4d-80.9825!16s%2Fg%2F11c1l_9z9z";
   const MAPS_SIMPLE_URL =
-    "https://maps.google.com/?q=46+Ontario+St,+Stratford,+ON+N5A+3G8";
+    "https://maps.google.com/?q=46+Ontario+St,+Stratford,+ON+N5A+1A1";
   const PHONE_NUMBER = "+12265841630";
+  const INSTAGRAM_URL = "https://www.instagram.com/hungryninjastratford/";
+  const TIKTOK_URL = "https://www.tiktok.com/@hungryninja.stratford";
 
   return (
     <footer id="visit" className="bg-[#1A1A1A] text-white pt-24 pb-8 relative overflow-hidden">
@@ -38,18 +52,24 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
+                data-testid="link-instagram"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <Instagram size={20} />
               </a>
               <a
-                href="#"
-                aria-label="Facebook"
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                data-testid="link-tiktok"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
               >
-                <Facebook size={20} />
+                <TikTokIcon size={20} />
               </a>
             </div>
           </div>
@@ -77,7 +97,7 @@ export function Footer() {
             <div className="mt-5 rounded-lg overflow-hidden border border-white/10">
               <iframe
                 title="Hungry Ninja on Google Maps"
-                src="https://maps.google.com/maps?q=46+Ontario+St,+Stratford,+ON+N5A+3G8,+Canada&output=embed&z=16"
+                src="https://maps.google.com/maps?q=46+Ontario+St,+Stratford,+ON+N5A+1A1,+Canada&output=embed&z=16"
                 width="100%"
                 height="140"
                 style={{ border: 0 }}
@@ -95,9 +115,8 @@ export function Footer() {
               {t("footer.hours")}
             </h4>
             <ul className="text-white/80 space-y-2 text-sm leading-relaxed">
-              <li className="text-white/40">{t("footer.hoursMon")}</li>
-              <li className="font-medium text-white/90">{t("footer.hoursTueSat")}</li>
-              <li className="text-white/40">{t("footer.hoursSun")}</li>
+              <li className="font-medium text-white/90">{t("footer.hoursOpen")}</li>
+              <li className="text-white/50">{t("footer.hoursClosed")}</li>
             </ul>
             <p className="text-white/40 text-xs mt-4 italic">
               {t("footer.hoursNote")}
@@ -129,6 +148,29 @@ export function Footer() {
             </Button>
           </div>
 
+        </div>
+
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <h4 className="font-bold text-sm uppercase tracking-wider text-white/50 mb-4">
+            {t("footer.goodToKnow")}
+          </h4>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { icon: Utensils, label: t("footer.attrDineIn") },
+              { icon: ShoppingBag, label: t("footer.attrTakeaway") },
+              { icon: Car, label: t("footer.attrParking") },
+              { icon: CreditCard, label: t("footer.attrCards") },
+              { icon: Accessibility, label: t("footer.attrAccessible") },
+            ].map(({ icon: Icon, label }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white/80"
+              >
+                <Icon size={16} className="text-primary" />
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
