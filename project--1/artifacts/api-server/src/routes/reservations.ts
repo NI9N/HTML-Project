@@ -1,30 +1,40 @@
 import { Router } from "express";
-import { db, reservationsTable, insertReservationSchema } from "@workspace/db";
 import { z } from "zod/v4";
+import { createReservation, getReservations } from "../db";
 
 const router = Router();
 
-router.post("/reservations", async (req, res) => {
-  const parsed = insertReservationSchema.safeParse(req.body);
-  if (!parsed.success) {
-    res.status(400).json({ error: "Invalid request", details: z.treeifyError(parsed.error) });
-    return;
-  }
-
-  const [reservation] = await db
-    .insert(reservationsTable)
-    .values(parsed.data)
-    .returning();
-
-  res.status(201).json(reservation);
+const reservationSchema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().min(1),
+  date: z.string().min(1),
+  time: z.string().min(1),
+  partySize: z.number().int().positive(),
+  notes: z.string().optional(),
 });
 
-router.get("/reservations", async (_req, res) => {
-  const reservations = await db
-    .select()
-    .from(reservationsTable)
-    .orderBy(reservationsTable.createdAt);
-  res.json(reservations);
+router.post("/reservations", async (req, res, next) => {
+  try {
+    const parsed = reservationSchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ error: "Invalid request", details: parsed.error.issues });
+      return;
+    }
+    const reservation = await createReservation(parsed.data);
+    res.status(201).json(reservation);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/reservations", async (_req, res, next) => {
+  try {
+    const reservations = await getReservations();
+    res.json(reservations);
+  } catch (err) {
+    next(err);
+  }
 });
 
 export default router;
