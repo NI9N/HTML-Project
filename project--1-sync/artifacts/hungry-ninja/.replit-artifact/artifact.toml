@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Hungry Ninja Restaurant"
+version = "1.0.0"
+id = "artifacts/hungry-ninja"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18847
+
+[services.development]
+run = "pnpm --filter @workspace/hungry-ninja run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hungry-ninja", "run", "build" ]
+publicDir = "artifacts/hungry-ninja/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18847"
+BASE_PATH = "/"
