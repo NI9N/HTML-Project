@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - "project--1/artifacts/hungry-ninja/**"
-      - ".github/workflows/deploy.yml"
 
 jobs:
   deploy:
@@ -15,10 +12,6 @@ jobs:
       contents: read
       pages: write
       id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
