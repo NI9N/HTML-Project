@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { SeigaihaPattern } from "./decorative";
@@ -6,6 +7,7 @@ import int2 from "@assets/int2_1780170704785.jpg";
 
 export function About() {
   const { t } = useTranslation();
+  const [showSecond, setShowSecond] = useState(false);
 
   const badges = [
     { key: "badge1", color: "#D42B2B" },
@@ -28,19 +30,28 @@ export function About() {
             className="flex-1 w-full"
           >
             <div className="relative">
-              <div className="aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+              {/* Mobile: tap to toggle between two photos */}
+              <div
+                className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl cursor-pointer md:cursor-default relative md:hidden"
+                onClick={() => setShowSecond(s => !s)}
+              >
                 <img
-                  src={int1}
-                  alt="Hungry Ninja Interior Lanterns"
+                  src={showSecond ? int2 : int1}
+                  alt="Hungry Ninja Interior"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full">
+                  {showSecond ? "← 返回" : "切换图片"}
+                </div>
               </div>
-              <div className="absolute -bottom-8 -right-8 w-2/3 aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-background hidden md:block">
-                <img
-                  src={int2}
-                  alt="Hungry Ninja Table Setup"
-                  className="w-full h-full object-cover"
-                />
+              {/* Desktop: both photos overlapping */}
+              <div className="hidden md:block">
+                <div className="aspect-square lg:aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+                  <img src={int1} alt="Hungry Ninja Interior Lanterns" className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute -bottom-8 -right-8 w-2/3 aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-background">
+                  <img src={int2} alt="Hungry Ninja Table Setup" className="w-full h-full object-cover" />
+                </div>
               </div>
             </div>
           </motion.div>
