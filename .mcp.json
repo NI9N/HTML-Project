@@ -13,19 +13,7 @@
       "command": "node",
       "args": ["E:\\Hello World\\mcp-openrouter\\index.js"],
       "env": {
-        "OPENROUTER_API_KEY": "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",
         "PATH": "C:\\Program Files\\nodejs;${PATH}"
-      }
-    },
-    "replit": {
-      "type": "http",
-      "url": "https://1d4ef73d-5e3a-425d-b6c9-a197551bd627-00-3d3u699a4hdyl.pike.replit.dev/api/mcp"
-    },
-    "replit-ninja": {
-      "type": "http",
-      "url": "https://1d4ef73d-5e3a-425d-b6c9-a197551bd627-00-3d3u699a4hdyl.pike.replit.dev/api/mcp",
-      "headers": {
-        "Authorization": "Bearer mninja_f9be38a86de1a7bcfb2fed735ebf7dc5ffb384c6dfea3f1bb8fc85c4157a61ab"
       }
     }
   }
