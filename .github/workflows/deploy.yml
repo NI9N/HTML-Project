@@ -20,11 +20,16 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
+
+      - name: Install dependencies
+        working-directory: project--1/artifacts/hungry-ninja
+        run: pnpm install --no-frozen-lockfile
+
       - name: Build
         working-directory: project--1/artifacts/hungry-ninja
-        run: |
-          npm install
-          PORT=3000 BASE_PATH=/HTML-Project/ npx vite build --config vite.config.ts
+        run: PORT=3000 BASE_PATH=/HTML-Project/ pnpm exec vite build --config vite.config.ts
 
       - uses: actions/configure-pages@v4
 
