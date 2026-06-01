@@ -5,6 +5,7 @@ node_modules/
 data/
 .claude/
 .playwright-mcp/
+.mcp.json
 hungry-ninja-fullpage.png
 hungry-ninja-mobile-viewport.png
 hungry-ninja-mobile.png

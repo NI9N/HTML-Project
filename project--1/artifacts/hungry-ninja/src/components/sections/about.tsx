@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { SeigaihaPattern } from "./decorative";
+import { SeigaihaPattern } from "../decorative";
 import int1 from "@assets/int1_1780170704785.jpg";
 import int2 from "@assets/int2_1780170704785.jpg";
 

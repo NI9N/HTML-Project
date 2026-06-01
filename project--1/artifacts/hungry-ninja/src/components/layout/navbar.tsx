@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { LanternIcon } from "./decorative";
+import { LanternIcon } from "../decorative";
 import { useLocation } from "wouter";
 
 export function Navbar() {

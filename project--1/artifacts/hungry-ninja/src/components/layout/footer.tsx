@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Instagram, Utensils, ShoppingBag, Car, CreditCard, Accessibility } from "lucide-react";
-import { LanternIcon } from "./decorative";
+import { LanternIcon } from "../decorative";
 
 function TikTokIcon({ size = 20 }: { size?: number }) {
   return (

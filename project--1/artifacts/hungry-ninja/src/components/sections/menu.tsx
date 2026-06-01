@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { NorenDivider } from "./decorative";
+import { NorenDivider } from "../decorative";
 
 import orchestraImg from "@assets/hn_orchestra_ocean.jpg";
 import ninjaBombImg from "@assets/hn_ninja_bomb.jpg";

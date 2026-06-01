@@ -52,14 +52,16 @@ project--1/
 │   │   │   │   ├── reserve.tsx   预约页面（待完善）
 │   │   │   │   └── not-found.tsx 404
 │   │   │   ├── components/
-│   │   │   │   ├── navbar.tsx    导航栏（sticky + 汉堡菜单）
-│   │   │   │   ├── hero.tsx      Hero 全屏首屏
-│   │   │   │   ├── about.tsx     关于区
-│   │   │   │   ├── menu.tsx      菜单（分类 tab + 卡片 + 价目表）
-│   │   │   │   ├── reviews.tsx   顾客评价
-│   │   │   │   ├── footer.tsx    页脚（地图、营业时间、联系方式）
-│   │   │   │   ├── decorative.tsx  装饰组件（灯笼、暖帘）
-│   │   │   │   └── ui/           shadcn/ui 组件库（~60个组件）
+│   │   │   │   ├── layout/
+│   │   │   │   │   ├── navbar.tsx    导航栏（sticky + 汉堡菜单）
+│   │   │   │   │   └── footer.tsx    页脚（地图、营业时间、联系方式）
+│   │   │   │   ├── sections/
+│   │   │   │   │   ├── hero.tsx      Hero 全屏首屏
+│   │   │   │   │   ├── about.tsx     关于区
+│   │   │   │   │   ├── menu.tsx      菜单（分类 tab + 卡片 + 价目表）
+│   │   │   │   │   └── reviews.tsx   顾客评价
+│   │   │   │   ├── decorative.tsx    装饰组件（灯笼、暖帘）
+│   │   │   │   └── ui/               shadcn/ui 组件库（~60个组件）
 │   │   │   ├── i18n/
 │   │   │   │   ├── index.ts      i18next 初始化
 │   │   │   │   ├── en.ts         英文文案
