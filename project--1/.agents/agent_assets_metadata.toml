@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "1gd8f8bf2UORuzXsAPKFd"
+uri = "file://DESIGN_GUIDE.md"
+type = "text"
+title = "Hungry Ninja 网页设计指南"
