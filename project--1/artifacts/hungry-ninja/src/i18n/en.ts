@@ -75,6 +75,7 @@ export default {
   },
   footer: {
     title: "Visit Hungry Ninja",
+    tagline: "Japanese Food & Drinks. Every bowl tells a story.",
     location: "Location",
     address: "46 Ontario St\nStratford, ON N5A 1A1",
     directions: "Get Directions",

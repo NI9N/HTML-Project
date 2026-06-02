@@ -17,10 +17,11 @@ export function Hero() {
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/60 z-10" />
-        <img 
-          src={extImg} 
-          alt="Hungry Ninja Exterior" 
+        <img
+          src={extImg}
+          alt="Hungry Ninja Exterior"
           className="w-full h-full object-cover"
+          fetchpriority="high"
         />
       </div>
 

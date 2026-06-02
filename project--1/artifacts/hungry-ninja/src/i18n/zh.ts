@@ -75,6 +75,7 @@ export default {
   },
   footer: {
     title: "访问 Hungry Ninja",
+    tagline: "日式料理 & 饮品。每一碗都有一个故事。",
     location: "地址",
     address: "46 Ontario St\n加拿大 安大略省 斯特拉特福德 N5A 1A1",
     directions: "查看地图",

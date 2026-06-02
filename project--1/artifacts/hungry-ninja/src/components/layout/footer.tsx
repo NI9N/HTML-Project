@@ -50,7 +50,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-white/70 mb-6 max-w-sm leading-relaxed">
-              Japanese Food & Drinks. Every bowl tells a story.
+              {t("footer.tagline")}
             </p>
             <div className="flex gap-4">
               <a

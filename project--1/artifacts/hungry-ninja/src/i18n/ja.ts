@@ -75,6 +75,7 @@ export default {
   },
   footer: {
     title: "Hungry Ninja へのアクセス",
+    tagline: "日本食 & ドリンク。一皿一皿に物語を込めて。",
     location: "所在地",
     address: "46 Ontario St\nStratford, ON N5A 1A1 カナダ",
     directions: "地図を見る",
