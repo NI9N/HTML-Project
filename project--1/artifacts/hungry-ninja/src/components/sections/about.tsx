@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { SeigaihaPattern } from "../decorative";
+import { PatternDivider, SeigaihaSvgDefs } from "../decorative";
 import int1 from "@assets/int1_1780170704785.jpg";
 import int2 from "@assets/int2_1780170704785.jpg";
 
@@ -16,8 +16,16 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-background relative">
-      <SeigaihaPattern className="absolute top-0 left-0 -translate-y-full" />
+    <section id="about" className="py-24 bg-background relative overflow-hidden">
+      {/* Background pattern overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.35]">
+        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
+          <SeigaihaSvgDefs />
+          <rect width="100%" height="100%" fill="url(#seigaiha-pattern)" />
+        </svg>
+      </div>
+
+      <PatternDivider className="absolute top-0 left-0 -translate-y-full" height={48} />
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -90,6 +98,8 @@ export function About() {
 
         </div>
       </div>
+
+      <PatternDivider className="absolute bottom-0 left-0" height={32} />
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { NorenDivider } from "../decorative";
+import { NorenDivider, SeigaihaSvgDefs } from "../decorative";
 
 import orchestraImg from "@assets/hn_orchestra_ocean.jpg";
 import ninjaBombImg from "@assets/hn_ninja_bomb.jpg";
@@ -178,7 +178,14 @@ export function MenuSection() {
   const lang = (["en", "zh", "ja"].includes(base) ? base : "en") as Lang;
 
   return (
-    <section id="menu" className="bg-[#FAF8F4] relative">
+    <section id="menu" className="bg-[#FAF8F4] relative overflow-hidden">
+      {/* Pattern background */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.18]">
+        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
+          <SeigaihaSvgDefs />
+          <rect width="100%" height="100%" fill="url(#seigaiha-pattern)" />
+        </svg>
+      </div>
       <NorenDivider className="absolute top-0 left-0 -translate-y-full" />
       <div className="container mx-auto px-4 md:px-6 py-24">
         <div className="text-center max-w-2xl mx-auto mb-16">

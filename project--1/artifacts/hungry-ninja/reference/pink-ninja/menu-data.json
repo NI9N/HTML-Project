@@ -1,0 +1,155 @@
+{
+  "source": "https://www.pinkninjaizakaya.com/menu",
+  "restaurant": "Pink Ninja Izakaya (Inside Hungry Ninja)",
+  "address": "46 Ontario St, Stratford, Ontario",
+  "phone": "226-584-1630",
+  "email": "pinkninjaizakaya@gmail.com",
+  "scraped": "2026-06-03",
+  "categories": [
+    {
+      "name": "Appetizers",
+      "description": "These dishes are great for sharing",
+      "items": [
+        { "name": "Soup of the Day", "price": 8, "description": "Daily soups made with fresh ingredients to help nourish your body!" },
+        { "name": "Miso Soup", "price": 6 },
+        { "name": "Inari Sushi 4 pc", "price": 10 },
+        { "name": "Seaweed Salad", "price": 8 },
+        { "name": "Tofu Salad", "price": 10, "description": "Organic Spring Mix, Cucumber, Tofu with Ninja sauce topped with Shiso. Add sashimi and boost more proteins!" },
+        { "name": "Edamame", "price": 8, "description": "Boiled Edamame beans with Japanese sun dried sea salt.", "image": "edamame.png" },
+        { "name": "Crab Salad", "price": 10, "description": "Organic Spring mix, cucumber and crab salad sticks, topped with Shiso and house Yuzu miso dressing." },
+        { "name": "Kaisen Salad", "price": 22, "description": "Organic spring mix, cucumber, salmon, Maguro and Crab salad with Ninja sauce.", "image": "kaisen-salad.png" },
+        { "name": "Tako Yaki 6pc", "price": 8, "description": "cooked octopus balls with Japanese BBQ sauce and Karashi Mayo" },
+        { "name": "Tako Wasabi", "price": 6.5, "description": "cooked octopus mixed with Wasabi, served with seaweed." },
+        { "name": "Shrimp Tempura 2pc", "price": 5, "image": "shrimp-tempura-2pc.png" },
+        { "name": "Vegetable Tempura 4pc", "price": 7, "description": "shredded onion, kale and carrots patty. delicious!" },
+        { "name": "Salmon Carpaccio", "price": 18, "description": "Salmon sashimi with seaweed salad, ikura, organic baby leafs with special house sauce.", "image": "salmon-carpaccio.png" },
+        { "name": "Albacore Tuna Tataki", "price": 18, "description": "Staff recommendation! seared and served with Japanese herbs with house vinaigrette sauce! must try!", "image": "albacore-tuna-tataki.jpg" },
+        { "name": "Braised Mackerel with house made sweet Miso", "price": 15, "description": "try our wild caught mackerel braised with house made organic Koji-miso. Served with small bowl of rice.", "image": "braised-mackerel-miso.png" }
+      ]
+    },
+    {
+      "name": "Sashimi",
+      "description": "freshly daily cut raw fish.",
+      "items": [
+        { "name": "Salmon 7pc", "price": 17, "description": "so fresh so clean and delicious!", "image": "salmon-7pc.png" },
+        { "name": "Salmon and Tuna", "price": 17, "description": "4pc salmon, 3pc tuna" },
+        { "name": "Yellowfin Tuna 7pc", "price": 17 },
+        { "name": "Sashimi Moriawase", "price": 37, "description": "Mix of Salmon, Tuna and other daily fresh cut sashimi." }
+      ]
+    },
+    {
+      "name": "Sushi Bowls",
+      "description": "choose your sauce! 1. Choose your protein 2. choose your sauce 3. toppings 4. add ons",
+      "items": [
+        { "name": "Salmon", "price": 16 },
+        { "name": "Tuna", "price": 16 },
+        { "name": "Ninja Bomb (salmon and shrimp tempura)", "price": 18 },
+        { "name": "Ninja Cali (Crab salad and tuna)", "price": 18 },
+        { "name": "Ninja Star (Smoked Salmon & Cream Cheese and shrimp tempura)", "price": 18 },
+        { "name": "Unagi", "price": 16 },
+        { "name": "Smoked Salmon & Cream Cheese", "price": 16 },
+        { "name": "Crab Salad", "price": 16 },
+        { "name": "Shrimp Tempura", "price": 16 },
+        { "name": "Vegetable Tempura", "price": 16 },
+        { "name": "Green Ninja (Tofu & Seaweed salad)", "price": 18 },
+        { "name": "Chicken Karaage", "price": 16 },
+        { "name": "Tofu", "price": 16 }
+      ]
+    },
+    {
+      "name": "Speciality Bowls",
+      "description": "come with rice and different toppings",
+      "items": [
+        { "name": "Chashu Don", "price": 18, "description": "House Braised Pork Belly on rice", "image": "chashu-don.png" },
+        { "name": "Tempura Donburi", "price": 20, "description": "3pc shrimp tempura, 3pc Vegetable tempura patty on rice with Tempura sauce on side" },
+        { "name": "Kaisen Don", "price": 32, "description": "Salmon, YellowfinTuna, BluefinTuna, Japanese scallop and Daily special item on the rice", "image": "kaisen-don.png" },
+        { "name": "Salmon, Maguro, Ikura Don", "price": 26, "description": "Simple and delicious", "image": "salmon-maguro-ikura-don.png" },
+        { "name": "Gyudon", "price": 19, "description": "Very authentic Japanese beef dish! This sliced beef cooked with onion served with rice, pickled ginger and Japanese green onion, delicious!", "image": "gyudon.png" },
+        { "name": "Salmon Lover Don", "price": 20, "description": "Salmon sashimi and Ikura on sushi rice", "image": "salmon-lover-don.png" },
+        { "name": "Bluefin Tuna Don", "price": 26, "description": "Bluefin Tuna 6pc Akami sashimi and Negitoro on rice. Very delicious!", "image": "bluefin-tuna-don.png" },
+        { "name": "Negitoro Don", "price": 20, "description": "Nakaochi part, mixed with Japanese Green Onion. Delicious!" }
+      ]
+    },
+    {
+      "name": "Ramen Noodle",
+      "description": "House made braised chashu is melty love",
+      "items": [
+        { "name": "1 pc Chashu Ramen", "price": 16, "description": "Tell us what broth you like! Tonkotsu, miso, spicy miso or black shoyu" },
+        { "name": "4 pc Chashu Ramen", "price": 19, "description": "Tell us what broth you like! Tonkotsu, Miso, Spicy Miso or Black shoyu", "image": "4pc-chashu-ramen.png" },
+        { "name": "Veggie Ramen", "price": 16, "description": "Tell us what broth you like! Black Shoyu, Miso or Spicy miso" },
+        { "name": "Classic Yakisoba", "price": 18, "description": "No broth. Noodle cooked with Japanese BBQ sauce with chicken.", "image": "classic-yakisoba.jpg" }
+      ]
+    },
+    {
+      "name": "Udon Noodle",
+      "description": "Thick Noodle with Authentic Udon broth. All Udon include Green Onion, Wakame, Naruto, Bokchoy, Pickled Ginger, Tempura Bits, Sesame seeds and Seaweed.",
+      "items": [
+        { "name": "Basic Udon", "price": 13, "description": "Protein will be Marinated Tofu." },
+        { "name": "Shrimp Tempura Udon", "price": 16 },
+        { "name": "Vegetable Tempura Udon", "price": 16 },
+        { "name": "Uni Carbonara Udon", "price": 20, "description": "Japanese Hokkaido Uni makes this dish so creamy and sweet! Served with Ikura and Soft Egg and Shiso. Great dish!!", "image": "uni-carbonara-udon.png" },
+        { "name": "Beef Udon", "price": 19, "description": "Our thin sliced beef cooked with onion top of Udon noodle. Great with udon broth, Yum!", "image": "beef-udon.jpg" },
+        { "name": "Chicken Curry Udon", "price": 20, "description": "Authentic Japanese Curry on Top of Udon! So good!" }
+      ]
+    },
+    {
+      "name": "Shinobi Rolls",
+      "description": "All shinobi rolls 8pc served with Japanese edible flowers and herbs",
+      "items": [
+        { "name": "Cucumber and Shiso", "price": 11, "description": "shiso is Japanese basil and very good flavour! simple but so good", "tags": ["Vegetarian"], "image": "cucumber-shiso.png" },
+        { "name": "Marinated Tofu & Cucumber & Avocado", "price": 12, "tags": ["Vegetarian"], "image": "tofu-cucumber-avocado.png" },
+        { "name": "Veggie Tempura & Avocado", "price": 13, "description": "Veggie Tempura Patty roll", "tags": ["Vegetarian"] },
+        { "name": "Avocado Salmon", "price": 12.5, "image": "avocado-salmon.png" },
+        { "name": "Maguro and Shiso", "price": 12.5, "description": "Tuna and Shiso is the best combination!!", "image": "maguro-shiso.png" },
+        { "name": "Karaage Chicken", "price": 12.5, "image": "karaage-chicken.png" },
+        { "name": "Dynamite Roll", "price": 12.5, "description": "Shrimp tempura, Avocado, Cucumber", "image": "dynamite-roll.png" },
+        { "name": "California Roll", "price": 12.5, "description": "Crab salad, Avocado, Cucumber, Tobiko", "image": "california-roll.png" },
+        { "name": "Unagi", "price": 12.5 },
+        { "name": "BlueFin Tuna Toro Taku Roll", "price": 26, "description": "Blue Fin Tuna Toro & Akami mixed with Takuan, Japanese green onion, Shiso, cucumber.", "image": "bluefin-toro-taku.png" },
+        { "name": "Rainbow Roll", "price": 17, "description": "Cucumber, Shrimp Tempura, Crab roll topped with Salmon and Maguro sashimi" },
+        { "name": "Negitoro", "price": 16, "description": "Bluefin Tuna Toro & Akami roll, 8pcs", "image": "negitoro.png" }
+      ]
+    },
+    {
+      "name": "Premium Rolls",
+      "description": "House Premium rolls, Enjoy!! All 8pcs",
+      "items": [
+        { "name": "Ninja Bomb Roll", "price": 17, "description": "Cucumber, Avocado, Shrimp Tempura roll topped with Salmon Sashimi!", "image": "ninja-bomb-roll.png" },
+        { "name": "Ninja Cali Roll", "price": 17, "description": "Cucumber, Maguro, Crab roll topped with Maguro Sashimi", "image": "ninja-cali-roll.png" },
+        { "name": "Ninja Star Roll", "price": 17, "description": "Cucumber, Cream cheese, Shrimp Tempura Roll topped with Smoked Salmon.", "image": "ninja-star-roll.png" },
+        { "name": "3 kind of Premium rolls", "price": 48, "description": "Enjoy all kind of Premium rolls with discount price :)" }
+      ]
+    },
+    {
+      "name": "Shinobi Roll Tray",
+      "description": "for any occasions!",
+      "items": [
+        { "name": "House Selected 24 pcs", "price": 30, "description": "Cucumber and Shiso, Salmon, Yuzu Crab", "image": "house-selected-24.png" },
+        { "name": "House Selected 48 pcs", "price": 60, "description": "Cucumber and shiso, Salmon, Maguro and shiso, crunchy shrimp tempura, yuzu crab, chicken roll.", "image": "house-selected-48.png" },
+        { "name": "Veggie 24 pcs tray", "price": 33, "description": "Cucumber and shiso, Marinated tofu topped with seaweed salad, Veggie tempura and Avocado.", "image": "veggie-24-tray.png" },
+        { "name": "Popular 24pcs Tray", "price": 35, "description": "Avocado Salmon, Dynamite, Maguro & Shiso" },
+        { "name": "Popular 48pcs Tray", "price": 72, "description": "Avocado Salmon, Dynamite, Maguro & Shiso, California, Ninja Bomb, Chicken" }
+      ]
+    },
+    {
+      "name": "Pressed Sushi",
+      "description": "6pc, your choice of fish on top with rice, pressed together so delicious",
+      "items": [
+        { "name": "Torched Salmon", "price": 19.5, "image": "torched-salmon.png" },
+        { "name": "Torched Japanese Scallop", "price": 20, "image": "torched-scallop.png" },
+        { "name": "Ebi with house Yuzu sauce", "price": 19.5, "image": "ebi-yuzu.jpg" },
+        { "name": "Maguro", "price": 19.5, "image": "maguro-pressed.png" },
+        { "name": "Unagi and Sansho Pepper", "price": 20 }
+      ]
+    },
+    {
+      "name": "Party Platter",
+      "description": "great choice for your house party, birthday party, any occasions!! 3 hour notice please!",
+      "items": [
+        { "name": "Aburi Sushi Platter", "price": 100, "description": "Wagyu beef sushi, Torched Salmon pressed sushi, Unagi Bo-sushi, torched scallop pressed sushi, dynamite with salmon on top, Ume&Shiso rolls. 42pcs", "image": "aburi-platter.png" },
+        { "name": "Variety Sushi Platter", "price": 100, "description": "4 salmon nigiri, 4 tuna nigiri, 4 zuke tuna nigiri, 4 ebi nigiri, 4 ikura Gunkan, 6 pressed sushi, 6 ToroTaku roll, 8 crunchy shrimp roll topped salmon sashimi, 8 cucumber & shiso, 4pc california roll. *Subject to availability", "image": "variety-platter.jpg" },
+        { "name": "Pressed Sushi Platter", "price": 95, "description": "Total 6 kind of Pressed sushi. 48pcs: Torched salmon, Salmon, Maguro, Ebi, Unagi, Japanese scallop", "image": "pressed-platter.png" }
+      ]
+    }
+  ]
+}

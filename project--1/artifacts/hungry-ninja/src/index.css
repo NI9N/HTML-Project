@@ -36,6 +36,7 @@
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-accent-border: hsl(var(--accent-border));
 
+
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-destructive-border: hsl(var(--destructive-border));

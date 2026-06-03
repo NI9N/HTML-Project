@@ -21,7 +21,7 @@ export function Hero() {
           src={extImg}
           alt="Hungry Ninja Exterior"
           className="w-full h-full object-cover"
-          fetchpriority="high"
+          fetchPriority="high"
         />
       </div>
 
