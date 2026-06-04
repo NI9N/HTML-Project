@@ -1,63 +1,57 @@
 import React from 'react';
 
+/**
+ * SeigaihaBackground — Japanese fish-scale (青海波) pattern
+ *
+ * Uses CSS radial-gradient to create two rows of overlapping semicircles
+ * offset by scaleR, tiling to fill any dark section.
+ *
+ * Geometry: each gradient circle is anchored at the BOTTOM corner of a
+ * (2r × r) tile. Its ring appears as the curved rim of the fish scale at
+ * the TOP of the tile, and repeats every r pixels vertically, creating
+ * the classic overlapping-scale stack.
+ */
 export const SeigaihaBackground = ({
   patternId = "sg-default",
   className = "",
-  scaleR = 40,
+  scaleR = 44,
   opacity = 1,
 }: {
-  patternId?: string;
+  patternId?: string;   // kept for API compat, unused in CSS approach
   className?: string;
   scaleR?: number;
   opacity?: number;
 }) => {
   const r = scaleR;
   const w = r * 2;
-  const h = r;
-  const r2 = Math.round(r * 0.64);
-  const r3 = Math.round(r * 0.30);
 
-  const arc = (cx: number, cy: number, radius: number) =>
-    `M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${cx + radius} ${cy}`;
+  // Circle center sits 25% BELOW the tile bottom (125% of tile height).
+  // This makes the ring's arc crest at the tile's TOP edge, forming the
+  // classic ∧ fish-scale arch. Two circles (left/right) mirror each other.
+  const makeScale = (xPct: string): string[] => [
+    // Main gold arc — the prominent rim of each fish scale
+    `radial-gradient(circle at ${xPct} 125%, transparent 55%, rgba(212,168,67,0.82) 57%, rgba(212,168,67,0.82) 70%, transparent 71%)`,
+    // Inner concentric ring — adds the "multi-layer scale" depth
+    `radial-gradient(circle at ${xPct} 125%, transparent 40%, rgba(212,168,67,0.32) 42%, rgba(212,168,67,0.32) 52%, transparent 53%)`,
+  ];
 
-  const arcFill = (cx: number, cy: number, radius: number) =>
-    `M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${cx + radius} ${cy} Z`;
+  const allGrads = [...makeScale('100%'), ...makeScale('0%')];
+  const bgImage  = allGrads.join(', ');
+
+  // 4 gradients: grads 1-2 (right circle) at x=0; grads 3-4 (left circle) at x=r
+  const bgPosition = `0 0, 0 0, ${r}px 0, ${r}px 0`;
 
   return (
     <div
-      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
-      style={{ opacity }}
-    >
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern
-            id={patternId}
-            x="0" y="0"
-            width={w} height={h}
-            patternUnits="userSpaceOnUse"
-          >
-            {/* ── Bottom row scale ── */}
-            <path d={arcFill(r, h, r)}  fill="rgba(212,168,67,0.07)" />
-            <path d={arc(r, h, r)}      fill="none" stroke="#D4A843" strokeWidth="1.4" strokeOpacity="0.65" />
-            <path d={arc(r, h, r2)}     fill="none" stroke="#D4A843" strokeWidth="0.8" strokeOpacity="0.30" />
-            <path d={arc(r, h, r3)}     fill="none" stroke="#D4A843" strokeWidth="0.5" strokeOpacity="0.15" />
-
-            {/* ── Top-left scale (offset row) ── */}
-            <path d={arcFill(0, 0, r)}  fill="rgba(212,168,67,0.07)" />
-            <path d={arc(0, 0, r)}      fill="none" stroke="#D4A843" strokeWidth="1.4" strokeOpacity="0.65" />
-            <path d={arc(0, 0, r2)}     fill="none" stroke="#D4A843" strokeWidth="0.8" strokeOpacity="0.30" />
-            <path d={arc(0, 0, r3)}     fill="none" stroke="#D4A843" strokeWidth="0.5" strokeOpacity="0.15" />
-
-            {/* ── Top-right scale (offset row) ── */}
-            <path d={arcFill(w, 0, r)}  fill="rgba(212,168,67,0.07)" />
-            <path d={arc(w, 0, r)}      fill="none" stroke="#D4A843" strokeWidth="1.4" strokeOpacity="0.65" />
-            <path d={arc(w, 0, r2)}     fill="none" stroke="#D4A843" strokeWidth="0.8" strokeOpacity="0.30" />
-            <path d={arc(w, 0, r3)}     fill="none" stroke="#D4A843" strokeWidth="0.5" strokeOpacity="0.15" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#${patternId})`} />
-      </svg>
-    </div>
+      className={`absolute inset-0 pointer-events-none ${className}`}
+      style={{
+        opacity,
+        backgroundImage: bgImage,
+        backgroundSize: `${w}px ${r}px`,
+        backgroundPosition: bgPosition,
+        backgroundRepeat: 'repeat',
+      }}
+    />
   );
 };
 
