@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { NorenDivider, SeigaihaSvgDefs } from "../decorative";
+import { NorenDivider } from "../decorative";
 
 import orchestraImg from "@assets/hn_orchestra_ocean.jpg";
 import ninjaBombImg from "@assets/hn_ninja_bomb.jpg";
@@ -178,14 +178,14 @@ export function MenuSection() {
   const lang = (["en", "zh", "ja"].includes(base) ? base : "en") as Lang;
 
   return (
-    <section id="menu" className="bg-[#FAF8F4] relative overflow-hidden">
-      {/* Pattern background */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.18]">
-        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
-          <SeigaihaSvgDefs />
-          <rect width="100%" height="100%" fill="url(#seigaiha-pattern)" />
-        </svg>
-      </div>
+    <section id="menu" className="relative overflow-hidden"
+      style={{
+        backgroundColor: '#fdfbf7',
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cdefs%3E%3Cpath id='w' d='M0 60c0-16.5 13.5-30 30-30s30 13.5 30 30M30 30c0-16.5 13.5-30 30-30s30 13.5 30 30M-30 30c0-16.5 13.5-30 30-30s30 13.5 30 30'/%3E%3C/defs%3E%3Crect width='120' height='60' fill='%23f0ece4'/%3E%3Cg fill='%23e2ded6'%3E%3Cuse href='%23w' x='0' y='0'/%3E%3Cuse href='%23w' x='60' y='0'/%3E%3Cuse href='%23w' x='30' y='30'/%3E%3Cuse href='%23w' x='-30' y='30'/%3E%3Cuse href='%23w' x='90' y='30'/%3E%3C/g%3E%3C/svg%3E")`,
+        backgroundSize: '240px 120px',
+        backgroundRepeat: 'repeat',
+      }}
+    >
       <NorenDivider className="absolute top-0 left-0 -translate-y-full" />
       <div className="container mx-auto px-4 md:px-6 py-24">
         <div className="text-center max-w-2xl mx-auto mb-16">

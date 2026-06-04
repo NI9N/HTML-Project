@@ -1,65 +1,37 @@
 import React from 'react';
 
-/** Authentic Seigaiha (青海波) SVG pattern — filled fish-scale bands */
-const SEIGAIHA_PATTERN_ID = 'seigaiha-pattern';
-
-/* Build the concentric filled bands for one half-circle arch */
-function seigaihaArch(left: number, right: number, baseY: number) {
-  const r = (right - left) / 2;
-  const cx = left + r;
-  return (
-    <g key={`${left}-${right}`}>
-      {/* Each band is a filled path layer — width matches a specific radius */}
-      {/* Outermost band */}
-      <path d={`M ${cx - r},${baseY} A ${r},${r} 0 0,1 ${cx + r},${baseY} Z`}
-        fill="rgba(200,168,77,0.25)" />
-      {/* Second band */}
-      <path d={`M ${cx - r * 0.75},${baseY} A ${r * 0.75},${r * 0.75} 0 0,1 ${cx + r * 0.75},${baseY} Z`}
-        fill="rgba(200,168,77,0.50)" />
-      {/* Third band */}
-      <path d={`M ${cx - r * 0.5},${baseY} A ${r * 0.5},${r * 0.5} 0 0,1 ${cx + r * 0.5},${baseY} Z`}
-        fill="rgba(200,168,77,0.20)" />
-      {/* Center dot */}
-      <path d={`M ${cx - r * 0.2},${baseY} A ${r * 0.2},${r * 0.2} 0 0,1 ${cx + r * 0.2},${baseY} Z`}
-        fill="rgba(200,168,77,0.70)" />
-    </g>
-  );
+/**
+ * Generate Seigaiha (青海波) SVG data URI with configurable stroke color.
+ * Uses cubic bezier wave paths to create overlapping fish-scale arcs.
+ */
+function seigaihaDataURI(stroke: string): string {
+  const s = encodeURIComponent(stroke);
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='${s}' stroke-width='1.5'%3E%3Cpath d='M0 40c0-11 9-20 20-20s20 9 20 20M40 40c0-11 9-20 20-20s20 9 20 20'/%3E%3Cpath d='M20 20c0-11 9-20 20-20s20 9 20 20M-20 20c0-11 9-20 20-20s20 9 20 20M60 20c0-11 9-20 20-20s20 9 20 20'/%3E%3Cpath d='M0 40c0-5.5 4.5-10 10-10s10 4.5 10 10M40 40c0-5.5 4.5-10 10-10s10 4.5 10 10'/%3E%3Cpath d='M20 20c0-5.5 4.5-10 10-10s10 4.5 10 10M-20 20c0-5.5 4.5-10 10-10s10 4.5 10 10M60 20c0-5.5 4.5-10 10-10s10 4.5 10 10'/%3E%3C/g%3E%3C/svg%3E")`;
 }
 
-export const SeigaihaSvgDefs = () => (
-  <defs>
-    <pattern id={SEIGAIHA_PATTERN_ID} width="100" height="50" patternUnits="userSpaceOnUse">
-      {/* Row 1: two arches at y=25 */}
-      {seigaihaArch(0, 50, 25)}
-      {seigaihaArch(50, 100, 25)}
-      {/* Row 2: one arch at y=50, offset by half-width */}
-      {seigaihaArch(25, 75, 50)}
-    </pattern>
-  </defs>
-);
-
-export const SeigaihaPattern = ({ className = "", opacity = 0.5 }: { className?: string; opacity?: number }) => (
+export const SeigaihaPattern = ({ className = "", opacity = 0.6 }: { className?: string; opacity?: number }) => (
   <div
     className={`w-full h-16 pointer-events-none ${className}`}
-    style={{ opacity }}
-  >
-    <svg width="100%" height="100%" preserveAspectRatio="none" className="w-full h-full">
-      <SeigaihaSvgDefs />
-      <rect width="100%" height="100%" fill={`url(#${SEIGAIHA_PATTERN_ID})`} />
-    </svg>
-  </div>
+    style={{
+      backgroundImage: seigaihaDataURI('#C8A84D'),
+      backgroundSize: '60px 30px',
+      backgroundRepeat: 'repeat',
+      opacity,
+    }}
+  />
 );
 
 /** Seigaiha pattern divider block */
 export const PatternDivider = ({ className = "", height = 24 }: { className?: string; height?: number }) => (
-  <div className={`relative w-full overflow-hidden ${className}`} style={{ height }}>
-    <div className="absolute inset-0">
-      <svg width="100%" height="100%" preserveAspectRatio="none" className="w-full h-full">
-        <SeigaihaSvgDefs />
-        <rect width="100%" height="100%" fill={`url(#${SEIGAIHA_PATTERN_ID})`} />
-      </svg>
-    </div>
-  </div>
+  <div
+    className={`w-full overflow-hidden ${className}`}
+    style={{
+      backgroundImage: seigaihaDataURI('rgba(255,255,255,0.5)'),
+      backgroundSize: '60px 30px',
+      backgroundRepeat: 'repeat',
+      height,
+    }}
+  />
 );
 
 /** Refined Lantern with shuriken — replaces the old "居" character */

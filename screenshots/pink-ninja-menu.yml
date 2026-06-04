@@ -1,0 +1,200 @@
+- generic [ref=e3]:
+  - region "top of page"
+  - generic [ref=e9]:
+    - banner [ref=e10]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic:
+            - generic:
+              - img [ref=e28]
+              - paragraph [ref=e446]: Pink Ninja Izakaya
+        - generic [ref=e447]:
+          - generic:
+            - generic:
+              - button [ref=e456] [cursor=pointer]:
+                - img [ref=e458]
+              - navigation "Site" [ref=e464]:
+                - button "MENU" [ref=e466] [cursor=pointer]:
+                  - generic [ref=e468]: MENU
+    - main [ref=e469]:
+      - generic [ref=e475]:
+        - generic:
+          - generic:
+            - generic [ref=e488]:
+              - heading "Menu" [level=1] [ref=e489]
+              - list "Menu" [ref=e490]:
+                - listitem [ref=e491]:
+                  - separator [ref=e492]
+                  - generic:
+                    - heading "Appetizers" [level=2]
+                  - paragraph [ref=e493]: These dishes are great for sharing
+                  - separator [ref=e494]
+                  - list "Appetizers" [ref=e495]:
+                    - listitem [ref=e496]
+                    - listitem [ref=e503]
+                    - listitem [ref=e509]
+                    - listitem [ref=e515]
+                    - listitem [ref=e521]
+                    - listitem [ref=e528]
+                    - listitem [ref=e539]
+                    - listitem [ref=e546]
+                    - listitem [ref=e557]
+                    - listitem [ref=e564]
+                    - listitem [ref=e571]
+                    - listitem [ref=e581]
+                    - listitem [ref=e588]
+                    - listitem [ref=e599]
+                    - listitem [ref=e610]
+                - listitem [ref=e621]:
+                  - separator [ref=e622]
+                  - generic:
+                    - heading "Sashimi" [level=2]
+                  - paragraph [ref=e623]: freshly daily cut raw fish.
+                  - separator [ref=e624]
+                  - list "Sashimi" [ref=e625]:
+                    - listitem [ref=e626]
+                    - listitem [ref=e637]
+                    - listitem [ref=e644]
+                    - listitem [ref=e650]
+                - listitem [ref=e657]:
+                  - separator [ref=e658]
+                  - generic:
+                    - heading "Sushi Bowls" [level=2]
+                  - paragraph [ref=e659]: choose your sauce!
+                  - separator [ref=e660]
+                  - list "Sushi Bowls" [ref=e661]:
+                    - listitem [ref=e662]
+                - listitem [ref=e720]:
+                  - separator [ref=e721]
+                  - generic:
+                    - heading "Speciality Bowls" [level=2]
+                  - paragraph [ref=e722]: come with rice and different toppings
+                  - separator [ref=e723]
+                  - list "Speciality Bowls" [ref=e724]:
+                    - listitem [ref=e725]
+                    - listitem [ref=e736]
+                    - listitem [ref=e743]
+                    - listitem [ref=e754]
+                    - listitem [ref=e765]
+                    - listitem [ref=e776]
+                    - listitem [ref=e787]
+                    - listitem [ref=e798]
+                - listitem [ref=e805]:
+                  - separator [ref=e806]
+                  - generic:
+                    - heading "Ramen noodle" [level=2]
+                  - paragraph [ref=e807]: House made braised chashu is melty love
+                  - separator [ref=e808]
+                  - list "Ramen noodle" [ref=e809]:
+                    - listitem [ref=e810]
+                    - listitem [ref=e817]
+                    - listitem [ref=e828]
+                    - listitem [ref=e835]
+                - listitem [ref=e846]:
+                  - separator [ref=e847]
+                  - generic:
+                    - heading "Udon Noodle" [level=2]
+                  - paragraph [ref=e848]: Thick Noodle with Authentic Udon broth. All Udon include, Green Onion, Wakame, Naruto, Bokchoy, Pickled Ginger, Tempura Bits, Sesame seeds and Seaweed.
+                  - separator [ref=e849]
+                  - list "Udon Noodle" [ref=e850]:
+                    - listitem [ref=e851]
+                    - listitem [ref=e858]
+                    - listitem [ref=e864]
+                    - listitem [ref=e870]
+                    - listitem [ref=e881]
+                    - listitem [ref=e892]
+                - listitem [ref=e899]:
+                  - separator [ref=e900]
+                  - generic:
+                    - heading "Shinobi Rolls" [level=2]
+                  - paragraph [ref=e901]: All shinobi rolls 8pc served with japanese edible flowers and herbs
+                  - separator [ref=e902]
+                  - list "Shinobi Rolls" [ref=e903]:
+                    - listitem [ref=e904]
+                    - listitem [ref=e925]
+                    - listitem [ref=e945]
+                    - listitem [ref=e962]
+                    - listitem [ref=e972]
+                    - listitem [ref=e983]
+                    - listitem [ref=e993]
+                    - listitem [ref=e1004]
+                    - listitem [ref=e1015]
+                    - listitem [ref=e1021]
+                    - listitem [ref=e1032]
+                    - listitem [ref=e1039]
+                - listitem [ref=e1050]:
+                  - separator [ref=e1051]
+                  - img "Premium Rolls" [ref=e1054]
+                  - generic:
+                    - heading "Premium Rolls" [level=2]
+                  - paragraph [ref=e1055]: House Premium rolls,Enjoy!! All 8pcs
+                  - separator [ref=e1056]
+                  - list "Premium Rolls" [ref=e1057]:
+                    - listitem [ref=e1058]
+                    - listitem [ref=e1069]
+                    - listitem [ref=e1080]
+                    - listitem [ref=e1091]
+                - listitem [ref=e1102]:
+                  - separator [ref=e1103]
+                  - generic:
+                    - heading "Shinobi roll tray" [level=2]
+                  - paragraph [ref=e1104]: for any occasions !
+                  - separator [ref=e1105]
+                  - list "Shinobi roll tray" [ref=e1106]:
+                    - listitem [ref=e1107]
+                    - listitem [ref=e1118]
+                    - listitem [ref=e1129]
+                    - listitem [ref=e1140]
+                    - listitem [ref=e1147]
+                - listitem [ref=e1154]:
+                  - separator [ref=e1155]
+                  - generic:
+                    - heading "Pressed Sushi" [level=2]
+                  - paragraph [ref=e1156]: 6pc, your choice of fish on top with rice, pressed together so delicious
+                  - separator [ref=e1157]
+                  - list "Pressed Sushi" [ref=e1158]:
+                    - listitem [ref=e1159]
+                    - listitem [ref=e1169]
+                    - listitem [ref=e1179]
+                    - listitem [ref=e1189]
+                    - listitem [ref=e1199]
+                - listitem [ref=e1205]:
+                  - separator [ref=e1206]
+                  - generic:
+                    - heading "Party Platter" [level=2]
+                  - paragraph [ref=e1207]: great choice for your house party, birthday party, any occasions !! 3 hour notice please!
+                  - separator [ref=e1208]
+                  - list "Party Platter" [ref=e1209]:
+                    - listitem [ref=e1210]
+                    - listitem [ref=e1221]
+                    - listitem [ref=e1232]
+            - heading "* prices and ingredient availability subject to change without notice" [level=6] [ref=e1243]:
+              - generic [ref=e1244]: "* prices and ingredient availability subject to change without notice"
+    - contentinfo [ref=e1245]:
+      - generic [ref=e1251]:
+        - generic:
+          - generic:
+            - heading "Pink Ninja Izakaya" [level=2] [ref=e1261]:
+              - link "Pink Ninja Izakaya" [ref=e1263] [cursor=pointer]:
+                - /url: https://www.pinkninjaizakaya.com
+            - generic [ref=e1268]:
+              - generic [ref=e1269]:
+                - generic:
+                  - generic:
+                    - paragraph [ref=e1273]: 226-584-1630
+                    - paragraph [ref=e1274]
+              - generic [ref=e1276]:
+                - generic:
+                  - generic:
+                    - generic
+            - generic [ref=e1301]:
+              - generic:
+                - generic:
+                  - paragraph [ref=e1302]: Stay Connected
+                  - generic [ref=e1303]:
+                    - generic [ref=e1304]: Enter Your Email *
+                    - textbox "Enter Your Email *" [ref=e1306]:
+                      - /placeholder: ""
+                  - button "Subscribe" [ref=e1308] [cursor=pointer]:
+                    - generic [ref=e1309]: Subscribe
+  - region "bottom of page"

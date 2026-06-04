@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { PatternDivider, SeigaihaSvgDefs } from "../decorative";
+import { PatternDivider } from "../decorative";
 import int1 from "@assets/int1_1780170704785.jpg";
 import int2 from "@assets/int2_1780170704785.jpg";
 
@@ -18,12 +18,13 @@ export function About() {
   return (
     <section id="about" className="py-24 bg-background relative overflow-hidden">
       {/* Background pattern overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.35]">
-        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
-          <SeigaihaSvgDefs />
-          <rect width="100%" height="100%" fill="url(#seigaiha-pattern)" />
-        </svg>
-      </div>
+      <div className="absolute inset-0 pointer-events-none opacity-[0.2]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='1.5'%3E%3Cpath d='M0 40c0-11 9-20 20-20s20 9 20 20M40 40c0-11 9-20 20-20s20 9 20 20'/%3E%3Cpath d='M20 20c0-11 9-20 20-20s20 9 20 20M-20 20c0-11 9-20 20-20s20 9 20 20M60 20c0-11 9-20 20-20s20 9 20 20'/%3E%3Cpath d='M0 40c0-5.5 4.5-10 10-10s10 4.5 10 10M40 40c0-5.5 4.5-10 10-10s10 4.5 10 10'/%3E%3Cpath d='M20 20c0-5.5 4.5-10 10-10s10 4.5 10 10M-20 20c0-5.5 4.5-10 10-10s10 4.5 10 10M60 20c0-5.5 4.5-10 10-10s10 4.5 10 10'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '60px 30px',
+          backgroundRepeat: 'repeat',
+        }}
+      />
 
       <PatternDivider className="absolute top-0 left-0 -translate-y-full" height={48} />
 
