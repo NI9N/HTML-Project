@@ -191,8 +191,8 @@ mcpServer.tool(
 
 export function validateConfig(): void {
   if (!process.env["MCP_API_KEY"]) {
-    throw new Error(
-      "MCP_API_KEY environment variable is required for MCP server functionality.",
+    console.warn(
+      "Warning: MCP_API_KEY environment variable is not set. MCP endpoints will be disabled.",
     );
   }
 }
