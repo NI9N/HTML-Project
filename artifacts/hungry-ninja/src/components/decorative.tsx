@@ -1,14 +1,75 @@
 import React from 'react';
 
+export const SeigaihaBackground = ({
+  patternId = "sg-default",
+  className = "",
+  scaleR = 40,
+  opacity = 1,
+}: {
+  patternId?: string;
+  className?: string;
+  scaleR?: number;
+  opacity?: number;
+}) => {
+  const r = scaleR;
+  const w = r * 2;
+  const h = r;
+  const r2 = Math.round(r * 0.64);
+  const r3 = Math.round(r * 0.30);
+
+  const arc = (cx: number, cy: number, radius: number) =>
+    `M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${cx + radius} ${cy}`;
+
+  const arcFill = (cx: number, cy: number, radius: number) =>
+    `M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${cx + radius} ${cy} Z`;
+
+  return (
+    <div
+      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
+      style={{ opacity }}
+    >
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern
+            id={patternId}
+            x="0" y="0"
+            width={w} height={h}
+            patternUnits="userSpaceOnUse"
+          >
+            {/* ── Bottom row scale ── */}
+            <path d={arcFill(r, h, r)}  fill="rgba(212,168,67,0.07)" />
+            <path d={arc(r, h, r)}      fill="none" stroke="#D4A843" strokeWidth="1.4" strokeOpacity="0.65" />
+            <path d={arc(r, h, r2)}     fill="none" stroke="#D4A843" strokeWidth="0.8" strokeOpacity="0.30" />
+            <path d={arc(r, h, r3)}     fill="none" stroke="#D4A843" strokeWidth="0.5" strokeOpacity="0.15" />
+
+            {/* ── Top-left scale (offset row) ── */}
+            <path d={arcFill(0, 0, r)}  fill="rgba(212,168,67,0.07)" />
+            <path d={arc(0, 0, r)}      fill="none" stroke="#D4A843" strokeWidth="1.4" strokeOpacity="0.65" />
+            <path d={arc(0, 0, r2)}     fill="none" stroke="#D4A843" strokeWidth="0.8" strokeOpacity="0.30" />
+            <path d={arc(0, 0, r3)}     fill="none" stroke="#D4A843" strokeWidth="0.5" strokeOpacity="0.15" />
+
+            {/* ── Top-right scale (offset row) ── */}
+            <path d={arcFill(w, 0, r)}  fill="rgba(212,168,67,0.07)" />
+            <path d={arc(w, 0, r)}      fill="none" stroke="#D4A843" strokeWidth="1.4" strokeOpacity="0.65" />
+            <path d={arc(w, 0, r2)}     fill="none" stroke="#D4A843" strokeWidth="0.8" strokeOpacity="0.30" />
+            <path d={arc(w, 0, r3)}     fill="none" stroke="#D4A843" strokeWidth="0.5" strokeOpacity="0.15" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill={`url(#${patternId})`} />
+      </svg>
+    </div>
+  );
+};
+
 export const SeigaihaPattern = ({ className = "" }: { className?: string }) => (
-  <div 
-    className={`w-full h-16 opacity-50 ${className}`} 
+  <div
+    className={`w-full h-16 opacity-50 ${className}`}
     style={{
       backgroundImage: `radial-gradient(circle at 100% 150%, transparent 20%, rgba(212,43,43,0.15) 21%, rgba(212,43,43,0.15) 34%, transparent 35%, transparent),
                         radial-gradient(circle at 0% 150%, transparent 20%, rgba(212,43,43,0.15) 21%, rgba(212,43,43,0.15) 34%, transparent 35%, transparent)`,
       backgroundSize: '40px 20px',
       backgroundPosition: '0 0, 20px 0'
-    }} 
+    }}
   />
 );
 

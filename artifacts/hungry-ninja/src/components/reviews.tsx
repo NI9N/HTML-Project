@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
+import { SeigaihaBackground } from "./decorative";
 
 const REVIEWS = [
   {
@@ -75,8 +76,9 @@ export function Reviews() {
   const { t } = useTranslation();
 
   return (
-    <section id="reviews" className="py-24 bg-[#1B2A4A] text-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="reviews" className="py-24 bg-[#1B2A4A] text-white relative overflow-hidden">
+      <SeigaihaBackground patternId="sg-reviews" scaleR={44} opacity={0.45} />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-serif font-bold text-4xl md:text-5xl mb-4 text-[#FAF8F4]">
             {t("reviews.title")}
