@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Star, ExternalLink } from "lucide-react";
+import { Star, ExternalLink, ChevronDown } from "lucide-react";
 
 type ReviewTranslation = { zh: string; ja: string };
 
@@ -139,6 +140,8 @@ export function Reviews() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language.split("-")[0];
   const showTranslation = lang === "zh" || lang === "ja";
+  const [showAll, setShowAll] = useState(false);
+  const displayed = showAll ? REVIEWS : REVIEWS.slice(0, 3);
 
   return (
     <section id="reviews" className="py-24 bg-[#1B2A4A] text-white">
@@ -181,7 +184,7 @@ export function Reviews() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {REVIEWS.map((review, index) => {
+          {displayed.map((review, index) => {
             const translationText = review.translation[lang as keyof ReviewTranslation] || review.translation.zh;
 
             return (
@@ -225,6 +228,18 @@ export function Reviews() {
             );
           })}
         </div>
+
+        {!showAll && REVIEWS.length > 3 && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/50 transition-colors text-sm"
+            >
+              展开全部评论 ({REVIEWS.length - 3})
+              <ChevronDown size={16} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
