@@ -1,1 +1,2 @@
 - [framer-motion whileInView in iframes](framer-motion-iframe.md) — whileInView + initial opacity:0 breaks in Replit preview iframes; use animate= directly on cards instead.
+- [Hungry Ninja project state](hungry-ninja-session.md) — current phase, key files, cart system, real menu data, Seigaiha abandoned, scraping tip for Wix sites.
