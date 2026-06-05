@@ -246,7 +246,7 @@ export default function ReservePage() {
                 animate={{ y: [-8, 8, -8] }}
                 transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }}
               >
-                <LanternIcon className="w-10 h-14 opacity-90" />
+                <LanternIcon className="w-12 h-auto opacity-90" />
               </motion.div>
             ))}
           </div>
@@ -290,7 +290,7 @@ export default function ReservePage() {
           <ArrowLeft size={16} /> {t("reserve.backHome")}
         </button>
         <div className="flex items-center gap-2">
-          <LanternIcon className="w-5 h-7" />
+          <LanternIcon className="w-8 h-auto" />
           <span className="font-serif font-black text-white text-lg tracking-wider uppercase">HUNGRY NINJA</span>
         </div>
         <div className="flex items-center gap-2.5">

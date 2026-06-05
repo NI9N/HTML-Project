@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * Generate Seigaiha (青海波) SVG data URI with configurable stroke color.
  * Uses cubic bezier wave paths to create overlapping fish-scale arcs.
@@ -34,21 +32,17 @@ export const PatternDivider = ({ className = "", height = 24 }: { className?: st
   />
 );
 
-/** Refined Lantern with shuriken — replaces the old "居" character */
-export const LanternIcon = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 24 32" className={`text-primary ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Lantern body */}
-    <path d="M6 3C6 3 4 10 4 16C4 22 6 29 6 29H18C18 29 20 22 20 16C20 10 18 3 18 3H6Z" fill="currentColor"/>
-    <path d="M9 3V29M12 3V29M15 3V29" stroke="rgba(0,0,0,0.12)" strokeWidth="1"/>
-    {/* Caps */}
-    <rect x="8" y="0" width="8" height="3" fill="#1A1A1A" rx="0.5"/>
-    <rect x="8" y="29" width="8" height="3" fill="#1A1A1A" rx="0.5"/>
-    {/* Shuriken (ninja star) inside lantern */}
-    <g transform="translate(12, 18)" fill="#1A1A1A" opacity="0.85">
-      <path d="M 0,-5 L 1,-1.5 L 6,0 L 1,1.5 L 0,5 L -1,1.5 L -6,0 L -1,-1.5 Z" />
-      <circle cx="0" cy="0" r="1.2" fill="#D42B2B" opacity="0.6" />
-    </g>
-  </svg>
+/** Ninja logo — loaded via <object> for SVG script execution. Animations (gold chopstick, hover restart) handled natively inside logo.svg */
+export const LanternIcon = ({ className = "", splash = false }: { className?: string; splash?: boolean }) => (
+  <object
+    data={splash ? "/logo.svg#splash" : "/logo.svg"}
+    type="image/svg+xml"
+    aria-label="Ninja Logo"
+    className={className}
+    style={{ clipPath: "inset(0 12% 12% 0)" }}
+  >
+    Ninja Logo
+  </object>
 );
 
 /** Standalone ninja star icon for accent use */

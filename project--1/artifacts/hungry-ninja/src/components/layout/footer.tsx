@@ -44,7 +44,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <LanternIcon className="w-6 h-8" />
+              <LanternIcon className="w-12 h-auto" />
               <span className="font-serif font-black text-2xl tracking-wider uppercase">
                 HUNGRY NINJA
               </span>

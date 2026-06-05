@@ -1,11 +1,16 @@
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { LanternIcon } from "../decorative";
 import { useLocation } from "wouter";
 
-export function Navbar() {
+interface NavbarProps {
+  onSplashTrigger?: () => void;
+}
+
+export function Navbar({ onSplashTrigger }: NavbarProps) {
   const { t, i18n } = useTranslation();
   const [, navigate] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,11 +53,13 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div 
-          className="flex items-center gap-2 cursor-pointer group" 
-          onClick={() => scrollTo("hero")}
+          className="flex items-center gap-2 cursor-pointer group"
+          onClick={() => onSplashTrigger?.()}
           data-testid="nav-logo"
         >
-          <LanternIcon className="w-6 h-8 group-hover:rotate-6 transition-transform origin-top" />
+          <motion.div layoutId="nav-logo" data-logo-target="navbar">
+            <LanternIcon className="w-24 h-auto" />
+          </motion.div>
           <span className="font-serif font-black text-xl md:text-2xl text-white tracking-wider uppercase">
             HUNGRY NINJA
           </span>

@@ -1,19 +1,36 @@
+import { useState } from "react";
+import { LayoutGroup } from "framer-motion";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { MenuSection } from "@/components/sections/menu";
 import { Reviews } from "@/components/sections/reviews";
+import { SplashScreen } from "@/components/splash";
 
 export default function Home() {
+  const [splashActive, setSplashActive] = useState(false);
+  const [splashKey, setSplashKey] = useState(0);
+
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
-      <Navbar />
-      <Hero />
-      <About />
-      <MenuSection />
-      <Reviews />
-      <Footer />
-    </div>
+    <LayoutGroup>
+      {splashActive && (
+        <SplashScreen
+          key={splashKey}
+          onFinish={() => {
+            setSplashActive(false);
+            setSplashKey((k) => k + 1);
+          }}
+        />
+      )}
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
+        <Navbar onSplashTrigger={() => setSplashActive(true)} />
+        <Hero />
+        <About />
+        <MenuSection />
+        <Reviews />
+        <Footer />
+      </div>
+    </LayoutGroup>
   );
 }
