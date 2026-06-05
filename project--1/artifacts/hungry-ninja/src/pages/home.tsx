@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { MenuSection } from "@/components/sections/menu";
+import { SeigaihaFadeUp } from "@/components/decorative";
 import { Reviews } from "@/components/sections/reviews";
 import { SplashScreen } from "@/components/splash";
 
@@ -27,6 +28,7 @@ export default function Home() {
         <Navbar onSplashTrigger={() => setSplashActive(true)} />
         <Hero />
         <About />
+        <SeigaihaFadeUp />
         <MenuSection />
         <Reviews />
         <Footer />

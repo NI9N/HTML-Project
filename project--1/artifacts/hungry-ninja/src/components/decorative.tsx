@@ -19,6 +19,20 @@ export const SeigaihaPattern = ({ className = "", opacity = 0.6 }: { className?:
   />
 );
 
+/** Seigaiha pattern that fades in from bottom — used as a transition between light and dark sections */
+export const SeigaihaFadeUp = ({ className = "" }: { className?: string }) => (
+  <div
+    className={`w-full h-32 pointer-events-none ${className}`}
+    style={{
+      backgroundImage: seigaihaDataURI('#C8A84D'),
+      backgroundSize: '60px 30px',
+      backgroundRepeat: 'repeat',
+      maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 15%, black 60%, black 100%)',
+      WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 15%, black 60%, black 100%)',
+    }}
+  />
+);
+
 /** Seigaiha pattern divider block */
 export const PatternDivider = ({ className = "", height = 24 }: { className?: string; height?: number }) => (
   <div
@@ -39,7 +53,7 @@ export const LanternIcon = ({ className = "", splash = false }: { className?: st
     type="image/svg+xml"
     aria-label="Ninja Logo"
     className={className}
-    style={{ clipPath: "inset(0 12% 12% 0)" }}
+    style={{ clipPath: "inset(0 12% 12% 0)", overflow: "hidden" }}
   >
     Ninja Logo
   </object>

@@ -41,7 +41,7 @@ export function MenuSection() {
 
   return (
     <section id="menu" className="relative overflow-hidden"
-      style={{ backgroundColor: '#0D0D0D' }}
+      style={{ background: 'linear-gradient(180deg, rgba(13,13,13,0) 0%, rgba(13,13,13,0.3) 200px, #0D0D0D 400px)' }}
     >
       {/* Vignette overlay */}
       <div className="absolute inset-0 pointer-events-none"

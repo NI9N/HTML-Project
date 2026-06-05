@@ -103,7 +103,15 @@ export function Navbar({ onSplashTrigger }: NavbarProps) {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2">
+          <Button
+            onClick={() => navigate("/reserve")}
+            size="sm"
+            className="bg-primary hover:bg-[#B02222] text-white font-bold rounded-md px-4 text-xs"
+            data-testid="btn-reserve-mobile-header"
+          >
+            {t("nav.reserve")}
+          </Button>
           <div className="flex items-center gap-2.5">
             {langs.map(([code, label]) => (
               <button
@@ -116,7 +124,7 @@ export function Navbar({ onSplashTrigger }: NavbarProps) {
               </button>
             ))}
           </div>
-          <button 
+          <button
             className="text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="btn-mobile-menu"

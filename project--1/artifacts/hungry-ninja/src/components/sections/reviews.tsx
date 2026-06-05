@@ -240,6 +240,17 @@ export function Reviews() {
             </button>
           </div>
         )}
+        {showAll && REVIEWS.length > 3 && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setShowAll(false)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/50 transition-colors text-sm"
+            >
+              收起
+              <ChevronDown size={16} className="rotate-180" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
