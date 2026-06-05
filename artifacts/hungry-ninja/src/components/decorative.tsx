@@ -57,6 +57,29 @@ export const SeigaihaBackground = ({
   );
 };
 
+export const NorenDivider = ({ className = "" }: { className?: string }) => (
+  <div className={`w-full overflow-hidden leading-none ${className}`}>
+    <svg
+      viewBox="0 0 1200 60"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      className="w-full h-12 md:h-16"
+    >
+      {Array.from({ length: 20 }).map((_, i) => (
+        <rect
+          key={i}
+          x={i * 60 + 5}
+          y={0}
+          width={50}
+          height={60}
+          rx={25}
+          fill="#1A1A1A"
+        />
+      ))}
+    </svg>
+  </div>
+);
+
 export const SeigaihaPattern = ({ className = "" }: { className?: string }) => (
   <div
     className={`w-full h-16 opacity-50 ${className}`}
