@@ -28,7 +28,7 @@ export function Footer() {
 
   return (
     <footer id="visit" className="bg-[#1A1A1A] text-white pt-24 pb-8 relative overflow-hidden">
-      <SeigaihaBackground patternId="sg-footer" scaleR={44} opacity={0.35} />
+      <SeigaihaBackground patternId="sg-footer" scaleR={44} opacity={0.45} bgColor="#1A1A1A" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
