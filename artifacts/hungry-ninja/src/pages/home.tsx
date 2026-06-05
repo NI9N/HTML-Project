@@ -4,6 +4,7 @@ import { About } from "@/components/about";
 import { MenuSection } from "@/components/menu";
 import { Reviews } from "@/components/reviews";
 import { Footer } from "@/components/footer";
+import { CartButton, CartPanel } from "@/components/cart";
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <MenuSection />
       <Reviews />
       <Footer />
+      <CartButton />
+      <CartPanel />
     </div>
   );
 }

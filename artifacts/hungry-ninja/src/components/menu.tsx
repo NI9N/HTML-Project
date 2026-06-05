@@ -1,6 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { Plus, Check } from "lucide-react";
+import { useState } from "react";
 import { NorenDivider } from "./decorative";
+import { useCart } from "@/context/CartContext";
 
 import orchestraImg from "@assets/hn_orchestra_ocean.jpg";
 import ninjaBombImg from "@assets/hn_ninja_bomb.jpg";
@@ -14,13 +17,15 @@ type FeaturedItem = {
   name: Loc;
   desc: Loc;
   price: string;
+  priceNum: number;
   tag?: "popular" | "new";
 };
 
 type MenuRow = {
-  name: Loc;
-  note?: Loc;
+  name: string;
+  note?: string;
   price?: string;
+  priceNum?: number;
 };
 
 type MenuSectionData = {
@@ -32,12 +37,9 @@ const FEATURED: FeaturedItem[] = [
   {
     image: orchestraImg,
     price: "$30",
+    priceNum: 30,
     tag: "popular",
-    name: {
-      en: "Orchestra of the Ocean",
-      zh: "海洋交响盛碗",
-      ja: "オーケストラ・オブ・ジ・オーシャン",
-    },
+    name: { en: "Orchestra of the Ocean", zh: "海洋交响盛碗", ja: "オーケストラ・オブ・ジ・オーシャン" },
     desc: {
       en: "Salmon, maguro, hamachi, ikura and shrimp over seasoned rice, finished with edible flowers from Japan.",
       zh: "三文鱼、金枪鱼、鰤鱼、三文鱼籽与鲜虾铺在调味米饭上，点缀日本进口食用花。",
@@ -47,12 +49,9 @@ const FEATURED: FeaturedItem[] = [
   {
     image: ninjaBombImg,
     price: "$17",
+    priceNum: 17,
     tag: "popular",
-    name: {
-      en: "Ninja Bomb",
-      zh: "忍者爆弹碗",
-      ja: "ニンジャボム",
-    },
+    name: { en: "Ninja Bomb", zh: "忍者爆弹碗", ja: "ニンジャボム" },
     desc: {
       en: "Salmon and crunchy shrimp tempura with tobiko, shredded nori, sesame and cucumber over rice.",
       zh: "三文鱼配酥脆炸虾天妇罗，加飞鱼籽、海苔丝、芝麻与黄瓜，铺在米饭上。",
@@ -62,12 +61,9 @@ const FEATURED: FeaturedItem[] = [
   {
     image: shinobiRollsImg,
     price: "$11",
+    priceNum: 11,
     tag: "new",
-    name: {
-      en: "Shinobi Rolls",
-      zh: "忍卷拼盘",
-      ja: "忍ロール",
-    },
+    name: { en: "Shinobi Rolls", zh: "忍卷拼盘", ja: "忍ロール" },
     desc: {
       en: "Uncut pinch-by-hand rolls drizzled with spicy mayo and furikake — 8 pieces, made to share.",
       zh: "手捏不切寿司卷，淋上香辣蛋黄酱与日式香松——每份 8 件，适合分享。",
@@ -78,94 +74,169 @@ const FEATURED: FeaturedItem[] = [
 
 const SECTIONS: MenuSectionData[] = [
   {
-    title: { en: "Protein Bowls", zh: "蛋白盖饭碗", ja: "プロテインボウル" },
+    title: { en: "Appetizers", zh: "前菜", ja: "前菜" },
     rows: [
-      { name: { en: "Ninja Bomb", zh: "忍者爆弹", ja: "ニンジャボム" }, note: { en: "Salmon & shrimp tempura", zh: "三文鱼与炸虾天妇罗", ja: "サーモン＆海老天" }, price: "$17" },
-      { name: { en: "Ninja Cali", zh: "忍者加州", ja: "ニンジャカリ" }, note: { en: "Maguro & crab salad", zh: "金枪鱼与蟹肉沙拉", ja: "マグロ＆カニサラダ" }, price: "$17" },
-      { name: { en: "Ninja Star", zh: "忍者之星", ja: "ニンジャスター" }, note: { en: "Smoked salmon, cream cheese & shrimp tempura", zh: "烟熏三文鱼、奶油芝士与炸虾天妇罗", ja: "スモークサーモン・クリームチーズ・海老天" }, price: "$17" },
-      { name: { en: "Green Ninja", zh: "青忍者", ja: "グリーンニンジャ" }, note: { en: "Tofu & seaweed salad", zh: "豆腐与海藻沙拉", ja: "豆腐＆海藻サラダ" }, price: "$16" },
-      { name: { en: "Raw Salmon", zh: "生三文鱼", ja: "生サーモン" }, price: "$15" },
-      { name: { en: "Maguro", zh: "金枪鱼", ja: "マグロ" }, note: { en: "Tuna", zh: "吞拿鱼", ja: "鮪" }, price: "$15" },
-      { name: { en: "Unagi", zh: "鳗鱼", ja: "うなぎ" }, note: { en: "BBQ eel", zh: "蒲烧鳗", ja: "蒲焼" }, price: "$15" },
-      { name: { en: "Smoked Salmon & Cream Cheese", zh: "烟熏三文鱼奶油芝士", ja: "スモークサーモン＆クリームチーズ" }, price: "$15" },
-      { name: { en: "Ninj-icken", zh: "忍者唐扬鸡", ja: "ニンジキン" }, note: { en: "Karaage chicken", zh: "日式炸鸡", ja: "唐揚げ" }, price: "$15" },
-      { name: { en: "Crab Salad", zh: "蟹肉沙拉", ja: "カニサラダ" }, price: "$14" },
-      { name: { en: "Shrimp Tempura", zh: "炸虾天妇罗", ja: "海老天" }, price: "$14" },
-      { name: { en: "Veggie Tempura", zh: "蔬菜天妇罗", ja: "野菜天" }, price: "$14" },
-      { name: { en: "Tofu", zh: "豆腐", ja: "豆腐" }, price: "$14" },
-    ],
-  },
-  {
-    title: { en: "Specialty Bowls", zh: "招牌盛碗", ja: "スペシャルボウル" },
-    rows: [
-      { name: { en: "Orchestra of the Ocean", zh: "海洋交响盛碗", ja: "オーケストラ・オブ・ジ・オーシャン" }, price: "$30" },
-      { name: { en: "Salmon, Maguro & Ikura Don", zh: "三文鱼金枪鱼鱼籽丼", ja: "サーモン・マグロ・いくら丼" }, price: "$26" },
-      { name: { en: "Chashu Don", zh: "叉烧丼", ja: "チャーシュー丼" }, note: { en: "Pork belly on rice", zh: "五花肉盖饭", ja: "豚バラ丼" }, price: "$17" },
-    ],
-  },
-  {
-    title: { en: "Shinobi Rolls", zh: "忍卷", ja: "忍ロール" },
-    rows: [
-      { name: { en: "Teriyaki Chicken", zh: "照烧鸡卷", ja: "照り焼きチキン" }, price: "$12" },
-      { name: { en: "Spicy Salmon", zh: "香辣三文鱼卷", ja: "スパイシーサーモン" }, price: "$11" },
-      { name: { en: "Crunchy Shrimp Tempura", zh: "脆炸虾卷", ja: "クランチ海老天" }, price: "$11" },
-      { name: { en: "Yuzu Crab", zh: "柚子蟹卷", ja: "柚子カニ" }, price: "$11" },
-      { name: { en: "Maguro & Wasabi Shiso", zh: "金枪鱼山葵紫苏卷", ja: "マグロ＆わさび紫蘇" }, price: "$11" },
-      { name: { en: "Cucumber & Shiso", zh: "黄瓜紫苏卷", ja: "胡瓜＆紫蘇" }, price: "$11" },
-      { name: { en: "Deep Fried Marinated Tofu", zh: "炸味付豆腐卷", ja: "揚げ味付け豆腐" }, price: "$11" },
-      { name: { en: "Shinobi Tray", zh: "忍卷拼盘", ja: "忍トレイ" }, note: { en: "24 pcs, house selection", zh: "24 件，主厨精选", ja: "24ピース／店主おすすめ" }, price: "$30" },
-    ],
-  },
-  {
-    title: { en: "Oshizushi", zh: "押寿司", ja: "押し寿司" },
-    rows: [
-      { name: { en: "Torched Salmon Oshizushi", zh: "炙烤三文鱼押寿司", ja: "炙りサーモン押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$18" },
-      { name: { en: "Ebi Oshizushi", zh: "鲜虾押寿司", ja: "海老押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$18" },
-      { name: { en: "Hotate Oshizushi", zh: "扇贝押寿司", ja: "帆立押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$18" },
-      { name: { en: "Maguro Oshizushi", zh: "金枪鱼押寿司", ja: "鮪押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$18" },
+      { name: "Soup of the Day", note: "Fresh daily soup", price: "$8", priceNum: 8 },
+      { name: "Miso Soup", price: "$6", priceNum: 6 },
+      { name: "Inari Sushi", note: "4 pcs", price: "$10", priceNum: 10 },
+      { name: "Edamame", note: "Boiled with Japanese sun-dried sea salt" },
+      { name: "Seaweed Salad" },
+      { name: "Tofu Salad", note: "Organic spring mix with Ninja sauce & Shiso" },
+      { name: "Crab Salad", note: "Organic spring mix, cucumber, crab & Yuzu miso dressing" },
+      { name: "Kaisen Salad", note: "Spring mix, salmon, maguro & crab with Ninja sauce", price: "$22", priceNum: 22 },
+      { name: "Tako Yaki", note: "6 pcs — cooked octopus balls with BBQ sauce & Karashi Mayo" },
+      { name: "Tako Wasabi", note: "Cooked octopus with wasabi & seaweed", price: "$6.50", priceNum: 6.5 },
+      { name: "Vegetable Tempura", note: "4 pcs — shredded onion, kale & carrot patty", price: "$7", priceNum: 7 },
+      { name: "Shrimp Tempura", note: "2 pcs" },
+      { name: "Salmon Carpaccio", note: "Salmon sashimi, seaweed salad, ikura & baby leafs", price: "$18", priceNum: 18 },
+      { name: "Albacore Tuna Tataki", note: "Seared with Japanese herbs & house vinaigrette" },
+      { name: "Braised Mackerel with Sweet Miso", note: "Wild caught, Koji-miso braised. Served with rice", price: "$15", priceNum: 15 },
+      { name: "Onsen Tamago", note: "Soft egg", price: "$3", priceNum: 3 },
     ],
   },
   {
     title: { en: "Sashimi", zh: "刺身", ja: "刺身" },
     rows: [
-      { name: { en: "Sashimi Moriawase", zh: "刺身拼盘", ja: "刺身盛り合わせ" }, price: "$35" },
-      { name: { en: "Salmon Sashimi", zh: "三文鱼刺身", ja: "サーモン刺身" }, note: { en: "7 pcs", zh: "7 片", ja: "7切れ" }, price: "$16" },
-      { name: { en: "Maguro Sashimi", zh: "金枪鱼刺身", ja: "マグロ刺身" }, note: { en: "7 pcs", zh: "7 片", ja: "7切れ" }, price: "$16" },
-      { name: { en: "Salmon & Maguro", zh: "三文鱼金枪鱼拼", ja: "サーモン＆マグロ" }, note: { en: "7 pcs", zh: "7 片", ja: "7切れ" }, price: "$16" },
+      { name: "Salmon Sashimi", note: "7 pcs", price: "$17", priceNum: 17 },
+      { name: "Salmon & Tuna", note: "4 pcs salmon, 3 pcs tuna" },
+      { name: "Yellowfin Tuna Sashimi", note: "7 pcs" },
+      { name: "Sashimi Moriawase", note: "Salmon, tuna & daily fresh cuts", price: "$37", priceNum: 37 },
+    ],
+  },
+  {
+    title: { en: "Sushi Bowls", zh: "寿司丼", ja: "寿司ボウル" },
+    rows: [
+      { name: "Salmon Bowl", price: "$16", priceNum: 16 },
+      { name: "Tuna Bowl" },
+      { name: "Ninja Bomb Bowl", note: "Salmon & shrimp tempura" },
+      { name: "Ninja Cali Bowl", note: "Crab salad & tuna" },
+      { name: "Ninja Star Bowl", note: "Smoked salmon, cream cheese & shrimp tempura" },
+      { name: "Unagi Bowl", note: "BBQ eel" },
+      { name: "Smoked Salmon & Cream Cheese Bowl" },
+      { name: "Crab Salad Bowl" },
+      { name: "Shrimp Tempura Bowl" },
+      { name: "Vegetable Tempura Bowl" },
+      { name: "Green Ninja Bowl", note: "Tofu & seaweed salad" },
+      { name: "Chicken Karaage Bowl" },
+    ],
+  },
+  {
+    title: { en: "Specialty Bowls", zh: "招牌丼", ja: "スペシャルボウル" },
+    rows: [
+      { name: "Tempura Donburi", note: "3 pc shrimp tempura, 3 pc veggie tempura on rice", price: "$20", priceNum: 20 },
+      { name: "Salmon, Maguro & Ikura Don", price: "$26", priceNum: 26 },
+      { name: "Gyudon", note: "Authentic sliced beef with onion & pickled ginger", price: "$19", priceNum: 19 },
+      { name: "Kaisen Don", note: "Salmon, yellowfin tuna, bluefin tuna, scallop & daily special", price: "$32", priceNum: 32 },
+      { name: "Salmon Lover Don", note: "Salmon sashimi & Ikura on sushi rice" },
+      { name: "Bluefin Tuna Don", note: "6 pcs Akami sashimi & Negitoro on rice" },
+      { name: "Negitoro Don", note: "Nakaochi mixed with Japanese green onion" },
+      { name: "Chashu Don", note: "House braised pork belly on rice" },
     ],
   },
   {
     title: { en: "Ramen & Noodles", zh: "拉面与面食", ja: "ラーメン＆麺" },
     rows: [
-      { name: { en: "Chashu Ramen", zh: "叉烧拉面", ja: "チャーシューラーメン" }, note: { en: "Tonkotsu, black shoyu, miso or spicy miso", zh: "豚骨／黑酱油／味噌／辣味噌", ja: "豚骨・黒醤油・味噌・辛味噌" }, price: "$15" },
-      { name: { en: "Veggie Ramen", zh: "蔬菜拉面", ja: "ベジラーメン" }, note: { en: "Shoyu, miso or spicy miso", zh: "酱油／味噌／辣味噌", ja: "醤油・味噌・辛味噌" }, price: "$15" },
-      { name: { en: "Veggie Tempura Udon", zh: "蔬菜天妇罗乌冬", ja: "野菜天うどん" }, price: "$15" },
-      { name: { en: "Yakisoba", zh: "日式炒面", ja: "焼きそば" }, note: { en: "Basic / chicken / chashu / shrimp tempura", zh: "原味／鸡肉／叉烧／炸虾", ja: "プレーン・鶏・チャーシュー・海老天" }, price: "$14" },
+      { name: "Ramen (1 pc Chashu)", note: "Choose: Tonkotsu, Miso, Spicy Miso or Black Shoyu" },
+      { name: "Ramen (4 pc Chashu)", note: "Choose: Tonkotsu, Miso, Spicy Miso or Black Shoyu" },
+      { name: "Veggie Ramen", note: "Choose: Black Shoyu, Miso or Spicy Miso" },
+      { name: "Classic Yakisoba", note: "Noodle with Japanese BBQ sauce & chicken (no broth)" },
     ],
   },
   {
-    title: { en: "Sides", zh: "小食", ja: "サイド" },
+    title: { en: "Udon", zh: "乌冬面", ja: "うどん" },
     rows: [
-      { name: { en: "Crab Salad", zh: "蟹肉沙拉", ja: "カニサラダ" }, price: "$10" },
-      { name: { en: "Tofu Bites", zh: "炸豆腐块", ja: "豆腐バイト" }, price: "$9" },
-      { name: { en: "Inari Sushi", zh: "稻荷寿司", ja: "稲荷寿司" }, note: { en: "4 pcs", zh: "4 件", ja: "4個" }, price: "$9" },
-      { name: { en: "Edamame", zh: "毛豆", ja: "枝豆" }, price: "$8" },
-      { name: { en: "Seaweed Salad", zh: "海藻沙拉", ja: "海藻サラダ" }, price: "$8" },
-      { name: { en: "Takoyaki", zh: "章鱼烧", ja: "たこ焼き" }, note: { en: "5 pcs", zh: "5 个", ja: "5個" }, price: "$7" },
-      { name: { en: "Karaage Chicken", zh: "日式炸鸡", ja: "唐揚げ" }, note: { en: "5 pcs", zh: "5 块", ja: "5個" }, price: "$6.5" },
-      { name: { en: "Miso Soup", zh: "味噌汤", ja: "味噌汁" }, price: "$6" },
-      { name: { en: "House Made Oshinko", zh: "自制渍菜", ja: "自家製お新香" }, price: "$5" },
+      { name: "Basic Udon", note: "Marinated tofu protein", price: "$13", priceNum: 13 },
+      { name: "Shrimp Tempura Udon" },
+      { name: "Vegetable Tempura Udon" },
+      { name: "Beef Udon", note: "Thin sliced beef with onion" },
+      { name: "Chicken Curry Udon", note: "Authentic Japanese curry on udon" },
+      { name: "Uni Carbonara Udon", note: "Hokkaido Uni, Ikura, soft egg & Shiso" },
     ],
   },
   {
-    title: { en: "Sweets & Drinks", zh: "甜品与饮品", ja: "スイーツ＆ドリンク" },
+    title: { en: "Shinobi Rolls", zh: "忍卷 (8 件)", ja: "忍ロール (8貫)" },
     rows: [
-      { name: { en: "Green Tea Cheesecake", zh: "抹茶芝士蛋糕", ja: "抹茶チーズケーキ" }, note: { en: "House favourite", zh: "招牌人气", ja: "人気の一品" } },
-      { name: { en: "Dango Matcha", zh: "抹茶团子", ja: "抹茶団子" }, note: { en: "1 pack", zh: "1 份", ja: "1パック" } },
-      { name: { en: "Highball", zh: "海波酒", ja: "ハイボール" }, note: { en: "Japanese izakaya classic", zh: "日式居酒屋经典", ja: "居酒屋の定番" } },
+      { name: "Cucumber & Shiso", note: "8 pcs", price: "$11", priceNum: 11 },
+      { name: "Marinated Tofu, Cucumber & Avocado", note: "8 pcs", price: "$12", priceNum: 12 },
+      { name: "Avocado Salmon", note: "8 pcs", price: "$12.50", priceNum: 12.5 },
+      { name: "Veggie Tempura & Avocado", note: "8 pcs" },
+      { name: "Maguro & Shiso", note: "8 pcs" },
+      { name: "Chicken Karaage Roll", note: "8 pcs" },
+      { name: "Dynamite Roll", note: "Shrimp tempura, avocado, cucumber" },
+      { name: "California Roll", note: "Crab salad, avocado, cucumber, tobiko" },
+      { name: "Rainbow Roll", note: "Cucumber, shrimp tempura, crab topped with salmon & maguro sashimi" },
+      { name: "Bluefin Tuna Toro Taku Roll", note: "Toro & Akami with Takuan, green onion, Shiso, cucumber" },
+      { name: "Negitoro Roll", note: "Bluefin Tuna Toro & Akami, 8 pcs" },
+    ],
+  },
+  {
+    title: { en: "Premium Rolls", zh: "特选卷 (8 件)", ja: "プレミアムロール (8貫)" },
+    rows: [
+      { name: "Ninja Bomb Roll", note: "Cucumber, avocado, shrimp tempura topped with salmon sashimi" },
+      { name: "Ninja Cali Roll", note: "Cucumber, maguro, crab topped with maguro sashimi" },
+      { name: "Ninja Star Roll", note: "Cucumber, cream cheese, shrimp tempura topped with smoked salmon" },
+      { name: "3 Premium Rolls", note: "One of each Ninja Bomb, Ninja Cali, Ninja Star", price: "$48", priceNum: 48 },
+    ],
+  },
+  {
+    title: { en: "Pressed Sushi", zh: "押寿司 (6 件)", ja: "押し寿司 (6貫)" },
+    rows: [
+      { name: "Torched Salmon Oshizushi", note: "6 pcs", price: "$19.50", priceNum: 19.5 },
+      { name: "Torched Scallop Oshizushi", note: "6 pcs" },
+      { name: "Ebi with Yuzu Sauce Oshizushi", note: "6 pcs" },
+      { name: "Maguro Oshizushi", note: "6 pcs" },
+      { name: "Unagi & Sansho Pepper Oshizushi", note: "6 pcs" },
+    ],
+  },
+  {
+    title: { en: "Party Trays", zh: "聚会拼盘", ja: "パーティートレイ" },
+    rows: [
+      { name: "House Selected Shinobi Tray", note: "24 pcs — Cucumber & Shiso, Salmon, Yuzu Crab", price: "$30", priceNum: 30 },
+      { name: "House Selected Shinobi Tray", note: "48 pcs — Cucumber & Shiso, Salmon, Maguro, Shrimp, Yuzu Crab, Chicken", price: "$60", priceNum: 60 },
+      { name: "Popular Tray", note: "24 pcs — Avocado Salmon, Dynamite, Maguro & Shiso", price: "$35", priceNum: 35 },
+      { name: "Popular Tray", note: "48 pcs — Avocado Salmon, Dynamite, Maguro, California, Ninja Bomb, Chicken", price: "$72", priceNum: 72 },
+      { name: "Veggie 24pcs Tray", note: "Cucumber & Shiso, Marinated Tofu, Veggie Tempura", price: "$33", priceNum: 33 },
+    ],
+  },
+  {
+    title: { en: "Party Platters", zh: "大型拼盘", ja: "パーティープラッター" },
+    rows: [
+      { name: "Aburi Sushi Platter", note: "42 pcs — Wagyu beef sushi, torched salmon, Unagi, dynamite & more. 3h notice", price: "$100", priceNum: 100 },
+      { name: "Pressed Sushi Platter", note: "48 pcs — 6 kinds: torched salmon, salmon, maguro, ebi, unagi, scallop", price: "$95", priceNum: 95 },
     ],
   },
 ];
+
+function AddButton({ name, price, priceNum }: { name: string; price?: string; priceNum?: number }) {
+  const { addItem, setIsOpen } = useCart();
+  const [flash, setFlash] = useState(false);
+
+  const handleAdd = () => {
+    addItem({
+      id: name.toLowerCase().replace(/[^a-z0-9]/g, "-"),
+      name,
+      price: price ?? "TBD",
+      priceNum: priceNum ?? 0,
+    });
+    setFlash(true);
+    setTimeout(() => setFlash(false), 800);
+    setIsOpen(true);
+  };
+
+  return (
+    <button
+      onClick={handleAdd}
+      className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
+        flash
+          ? "bg-green-500 text-white scale-110"
+          : "bg-[#1A1A1A] text-white hover:bg-[#D42B2B] hover:scale-110"
+      }`}
+      aria-label={`Add ${name}`}
+    >
+      {flash ? <Check size={13} strokeWidth={3} /> : <Plus size={13} strokeWidth={3} />}
+    </button>
+  );
+}
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -186,11 +257,10 @@ export function MenuSection() {
           <p className="text-[#1A1A1A]/70 text-lg">{t("menu.subtitle")}</p>
         </div>
 
-        {/* Signature dishes with real photos */}
+        {/* Featured dishes */}
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          animate="visible"
           variants={sectionVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
         >
@@ -216,7 +286,10 @@ export function MenuSection() {
                   <h3 className="font-serif font-bold text-xl text-[#1A1A1A] leading-tight">{item.name[lang]}</h3>
                   <span className="font-bold text-primary text-lg whitespace-nowrap">{item.price}</span>
                 </div>
-                <p className="text-[#1A1A1A]/70 text-sm leading-relaxed">{item.desc[lang]}</p>
+                <p className="text-[#1A1A1A]/70 text-sm leading-relaxed flex-1">{item.desc[lang]}</p>
+                <div className="mt-4 flex justify-end">
+                  <AddButton name={item.name.en} price={item.price} priceNum={item.priceNum} />
+                </div>
               </div>
             </div>
           ))}
@@ -235,20 +308,21 @@ export function MenuSection() {
                 {section.title[lang]}
               </h4>
               <ul className="space-y-3">
-                {section.rows.map((row) => (
-                  <li key={row.name.en} className="flex items-baseline gap-3">
-                    <span className="text-[#1A1A1A] font-medium">
-                      {row.name[lang]}
+                {section.rows.map((row, i) => (
+                  <li key={`${row.name}-${i}`} className="flex items-center gap-2">
+                    <div className="flex-1 min-w-0 flex items-baseline gap-2">
+                      <span className="text-[#1A1A1A] font-medium text-sm shrink-0">{row.name}</span>
                       {row.note && (
-                        <span className="text-[#1A1A1A]/45 font-normal text-sm"> · {row.note[lang]}</span>
+                        <span className="text-[#1A1A1A]/45 font-normal text-xs truncate"> · {row.note}</span>
                       )}
-                    </span>
-                    <span className="flex-1 border-b border-dotted border-[#1A1A1A]/20 translate-y-[-3px]" />
-                    {row.price ? (
-                      <span className="font-bold text-[#1A1A1A] whitespace-nowrap">{row.price}</span>
-                    ) : (
-                      <span className="font-normal text-[#1A1A1A]/45 text-sm whitespace-nowrap">{t("menu.askPrice")}</span>
-                    )}
+                      <span className="flex-1 border-b border-dotted border-[#1A1A1A]/20 translate-y-[-3px] min-w-[8px]" />
+                      {row.price ? (
+                        <span className="font-bold text-[#1A1A1A] text-sm whitespace-nowrap shrink-0">{row.price}</span>
+                      ) : (
+                        <span className="font-normal text-[#1A1A1A]/40 text-xs whitespace-nowrap shrink-0">{t("menu.askPrice")}</span>
+                      )}
+                    </div>
+                    <AddButton name={row.name} price={row.price} priceNum={row.priceNum} />
                   </li>
                 ))}
               </ul>
