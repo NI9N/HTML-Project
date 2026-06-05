@@ -67,7 +67,7 @@ export function SplashScreen({ onFinish }: SplashScreenProps) {
         };
       }
       setExiting(true);
-    }, 3750);
+    }, 1100);
     return () => clearTimeout(t);
   }, []);
 
