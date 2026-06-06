@@ -46,17 +46,14 @@ export const PatternDivider = ({ className = "", height = 24 }: { className?: st
   />
 );
 
-/** Ninja logo — loaded via <object> for SVG script execution. Animations (gold chopstick, hover restart) handled natively inside logo.svg */
+/** Ninja logo — loaded via <img> for cross-browser compatibility (mobile Safari/Android) */
 export const LanternIcon = ({ className = "", splash = false }: { className?: string; splash?: boolean }) => (
-  <object
-    data={splash ? "/logo.svg#splash" : "/logo.svg"}
-    type="image/svg+xml"
-    aria-label="Ninja Logo"
+  <img
+    src="/logo.svg"
+    alt="Ninja Logo"
     className={className}
     style={{ clipPath: "inset(0 12% 12% 0)", overflow: "hidden" }}
-  >
-    Ninja Logo
-  </object>
+  />
 );
 
 /** Standalone ninja star icon for accent use */

@@ -106,8 +106,7 @@ export function Navbar({ onSplashTrigger }: NavbarProps) {
         <div className="md:hidden flex items-center gap-2">
           <Button
             onClick={() => navigate("/reserve")}
-            size="sm"
-            className="bg-primary hover:bg-[#B02222] text-white font-bold rounded-md px-4 text-xs"
+            className="bg-primary hover:bg-[#B02222] text-white font-bold rounded-md px-2 py-1 text-[10px] leading-tight min-h-0 h-auto"
             data-testid="btn-reserve-mobile-header"
           >
             {t("nav.reserve")}
