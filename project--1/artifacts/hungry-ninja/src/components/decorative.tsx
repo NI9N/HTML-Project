@@ -49,7 +49,7 @@ export const PatternDivider = ({ className = "", height = 24 }: { className?: st
 /** Ninja logo — loaded via <img> for cross-browser compatibility (mobile Safari/Android) */
 export const LanternIcon = ({ className = "", splash = false }: { className?: string; splash?: boolean }) => (
   <img
-    src={`${import.meta.env.BASE_URL}logo.svg`}
+    src={`${import.meta.env.BASE_URL}logo.svg${splash ? `?t=${Date.now()}` : ""}`}
     alt="Ninja Logo"
     className={className}
     style={{ clipPath: "inset(0 12% 12% 0)", overflow: "hidden" }}

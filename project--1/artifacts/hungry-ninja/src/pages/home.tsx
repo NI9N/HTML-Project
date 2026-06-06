@@ -10,7 +10,7 @@ import { Reviews } from "@/components/sections/reviews";
 import { SplashScreen } from "@/components/splash";
 
 export default function Home() {
-  const [splashActive, setSplashActive] = useState(true);
+  const [splashActive, setSplashActive] = useState(false);
   const [splashKey, setSplashKey] = useState(0);
 
   return (
