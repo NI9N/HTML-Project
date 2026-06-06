@@ -4,6 +4,44 @@ import ninjaBombRollImg from "@assets/ninja-bomb-roll.png";
 import ninjaCaliRollImg from "@assets/ninja-cali-roll.png";
 import ninjaStarRollImg from "@assets/ninja-star-roll.png";
 
+import edamameImg from "@assets/edamame.png";
+import kaisenSaladImg from "@assets/kaisen-salad.png";
+import shrimpTempuraImg from "@assets/shrimp-tempura-2pc.png";
+import salmonCarpaccioImg from "@assets/salmon-carpaccio.png";
+import albacoreTunaTatakiImg from "@assets/albacore-tuna-tataki.jpg";
+import braisedMackerelImg from "@assets/braised-mackerel-miso.png";
+import salmon7pcImg from "@assets/salmon-7pc.png";
+import chashuDonImg from "@assets/chashu-don.png";
+import kaisenDonImg from "@assets/kaisen-don.png";
+import salmonMaguroIkuraDonImg from "@assets/salmon-maguro-ikura-don.png";
+import gyudonImg from "@assets/gyudon.png";
+import salmonLoverDonImg from "@assets/salmon-lover-don.png";
+import bluefinTunaDonImg from "@assets/bluefin-tuna-don.png";
+import fourPcChashuRamenImg from "@assets/4pc-chashu-ramen.png";
+import classicYakisobaImg from "@assets/classic-yakisoba.jpg";
+import uniCarbonaraUdonImg from "@assets/uni-carbonara-udon.png";
+import beefUdonImg from "@assets/beef-udon.jpg";
+import cucumberShisoImg from "@assets/cucumber-shiso.png";
+import tofuCucumberAvocadoImg from "@assets/tofu-cucumber-avocado.png";
+import avocadoSalmonImg from "@assets/avocado-salmon.png";
+import maguroShisoImg from "@assets/maguro-shiso.png";
+import karaageChickenImg from "@assets/karaage-chicken.png";
+import dynamiteRollImg from "@assets/dynamite-roll.png";
+import californiaRollImg from "@assets/california-roll.png";
+import bluefinToroTakuImg from "@assets/bluefin-toro-taku.png";
+import negitoroImg from "@assets/negitoro.png";
+import houseSelected24Img from "@assets/house-selected-24.png";
+import houseSelected48Img from "@assets/house-selected-48.png";
+import veggie24TrayImg from "@assets/veggie-24-tray.png";
+import torchedSalmonImg from "@assets/torched-salmon.png";
+import torchedScallopImg from "@assets/torched-scallop.png";
+import ebiYuzuImg from "@assets/ebi-yuzu.jpg";
+import maguroPressedImg from "@assets/maguro-pressed.png";
+import aburiPlatterImg from "@assets/aburi-platter.png";
+import varietyPlatterImg from "@assets/variety-platter.jpg";
+import pressedPlatterImg from "@assets/pressed-platter.png";
+import premiumRollsHeaderImg from "@assets/premium-rolls-header.png";
+
 export const FEATURED: FeaturedItem[] = [
   {
     image: ninjaBombRollImg,
@@ -58,28 +96,52 @@ export const SECTIONS: MenuSectionData[] = [
     rows: [
       { name: { en: "Soup of the Day", zh: "每日例汤", ja: "本日のスープ" }, note: { en: "Fresh daily", zh: "当天新鲜制作", ja: "日替わり" }, price: "$8" },
       { name: { en: "Miso Soup", zh: "味噌汤", ja: "味噌汁" }, price: "$6" },
-      { name: { en: "Inari Sushi", zh: "稻荷寿司", ja: "稲荷寿司" }, note: { en: "4 pcs", zh: "4 件", ja: "4個" }, price: "$10" },
+      { name: { en: "Inari Sushi", zh: "稻荷寿司", ja: "稲荷寿司" }, note: { en: "4 pcs", zh: "4 件", ja: "4個" }, price: "$10", addons: [
+        { name: { en: "Extra Ikura", zh: "额外鱼籽", ja: "追加いくら" }, price: "$5" },
+        { name: { en: "Uni", zh: "海胆", ja: "うに" }, price: "$10" },
+        { name: { en: "Extra Salmon", zh: "额外三文鱼", ja: "追加サーモン" }, price: "$5" },
+      ]},
       { name: { en: "Seaweed Salad", zh: "海藻沙拉", ja: "海藻サラダ" }, price: "$8" },
-      { name: { en: "Tofu Salad", zh: "豆腐沙拉", ja: "豆腐サラダ" }, note: { en: "Organic spring mix with Ninja sauce & Shiso", zh: "有机综合蔬菜配忍者酱汁与紫苏", ja: "オーガニックミックスと忍者ソース、紫蘇" }, price: "$10" },
-      { name: { en: "Edamame", zh: "毛豆", ja: "枝豆" }, note: { en: "Boiled with Japanese sun-dried sea salt", zh: "日本海盐煮", ja: "天日塩茹で" }, price: "$8" },
-      { name: { en: "Crab Salad", zh: "蟹肉沙拉", ja: "カニサラダ" }, note: { en: "Spring mix, cucumber, crab & Yuzu miso dressing", zh: "综合蔬菜、黄瓜、蟹肉配柚子味噌酱", ja: "ミックスリーフ、胡瓜、カニ、柚子味噌ドレッシング" }, price: "$10" },
-      { name: { en: "Kaisen Salad", zh: "海鲜沙拉", ja: "海鮮サラダ" }, note: { en: "Spring mix, salmon, maguro & crab with Ninja sauce", zh: "综合蔬菜、三文鱼、金枪鱼、蟹肉配忍者酱汁", ja: "ミックスリーフ、サーモン、マグロ、カニ、忍者ソース" }, price: "$22" },
+      { name: { en: "Tofu Salad", zh: "豆腐沙拉", ja: "豆腐サラダ" }, note: { en: "Organic spring mix with Ninja sauce & Shiso", zh: "有机综合蔬菜配忍者酱汁与紫苏", ja: "オーガニックミックスと忍者ソース、紫蘇" }, price: "$10", addons: [
+        { name: { en: "Raw Salmon", zh: "生三文鱼", ja: "生サーモン" }, price: "$4.5" },
+        { name: { en: "Maguro (Yellowfin Tuna)", zh: "金枪鱼（黄鳍）", ja: "マグロ（キハダ）" }, price: "$4.5" },
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+      ]},
+      { name: { en: "Edamame", zh: "毛豆", ja: "枝豆" }, note: { en: "Boiled with Japanese sun-dried sea salt", zh: "日本海盐煮", ja: "天日塩茹で" }, price: "$8", image: edamameImg },
+      { name: { en: "Crab Salad", zh: "蟹肉沙拉", ja: "カニサラダ" }, note: { en: "Spring mix, cucumber, crab & Yuzu miso dressing", zh: "综合蔬菜、黄瓜、蟹肉配柚子味噌酱", ja: "ミックスリーフ、胡瓜、カニ、柚子味噌ドレッシング" }, price: "$10", addons: [
+        { name: { en: "Raw Salmon", zh: "生三文鱼", ja: "生サーモン" }, price: "$4.5" },
+        { name: { en: "Maguro (Yellowfin Tuna)", zh: "金枪鱼（黄鳍）", ja: "マグロ（キハダ）" }, price: "$4.5" },
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+      ]},
+      { name: { en: "Kaisen Salad", zh: "海鲜沙拉", ja: "海鮮サラダ" }, note: { en: "Spring mix, salmon, maguro & crab with Ninja sauce", zh: "综合蔬菜、三文鱼、金枪鱼、蟹肉配忍者酱汁", ja: "ミックスリーフ、サーモン、マグロ、カニ、忍者ソース" }, price: "$22", image: kaisenSaladImg, addons: [
+        { name: { en: "Raw Salmon", zh: "生三文鱼", ja: "生サーモン" }, price: "$4.5" },
+        { name: { en: "Maguro (Yellowfin Tuna)", zh: "金枪鱼（黄鳍）", ja: "マグロ（キハダ）" }, price: "$4.5" },
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+      ]},
       { name: { en: "Tako Yaki", zh: "章鱼烧", ja: "たこ焼き" }, note: { en: "6 pcs — BBQ sauce & Karashi Mayo", zh: "6 个—烧烤酱与辣味蛋黄酱", ja: "6個—BBQソースと辛子マヨ" }, price: "$8" },
       { name: { en: "Tako Wasabi", zh: "芥末章鱼", ja: "たこわさび" }, note: { en: "Cooked octopus with wasabi & seaweed", zh: "熟章鱼配芥末与海苔", ja: "茹でだことわさび、海苔" }, price: "$6.5" },
-      { name: { en: "Shrimp Tempura", zh: "炸虾天妇罗", ja: "海老天" }, note: { en: "2 pcs", zh: "2 只", ja: "2尾" }, price: "$5" },
+      { name: { en: "Shrimp Tempura", zh: "炸虾天妇罗", ja: "海老天" }, note: { en: "2 pcs", zh: "2 只", ja: "2尾" }, price: "$5", image: shrimpTempuraImg },
       { name: { en: "Vegetable Tempura", zh: "蔬菜天妇罗", ja: "野菜天" }, note: { en: "4 pcs — onion, kale & carrot patty", zh: "4 件—洋葱、羽衣甘蓝、胡萝卜饼", ja: "4個—玉ねぎ、ケール、人参" }, price: "$7" },
-      { name: { en: "Salmon Carpaccio", zh: "三文鱼薄切", ja: "サーモンカルパッチョ" }, note: { en: "Salmon sashimi, seaweed salad, ikura & baby leafs", zh: "三文鱼刺身、海藻沙拉、鱼籽与嫩叶", ja: "サーモン刺身、海藻サラダ、いくら、リーフ" }, price: "$18" },
-      { name: { en: "Albacore Tuna Tataki", zh: "长鳍金枪鱼炙烤", ja: "ビンチョウマグロのタタキ" }, note: { en: "Seared with Japanese herbs & house vinaigrette", zh: "日式香草炙烤配自制醋汁", ja: "和風ハーブで炙り、自家製ビネグレット" }, price: "$18" },
-      { name: { en: "Braised Mackerel with Sweet Miso", zh: "甜味噌炖鲭鱼", ja: "鯖の甘味噌煮" }, note: { en: "Wild caught, Koji-miso braised. Served with rice", zh: "野生鲭鱼、麹味噌炖煮。配米饭", ja: "天然鯖、麹味噌煮込み。ライス付き" }, price: "$15" },
+      { name: { en: "Salmon Carpaccio", zh: "三文鱼薄切", ja: "サーモンカルパッチョ" }, note: { en: "Salmon sashimi, seaweed salad, ikura & baby leafs", zh: "三文鱼刺身、海藻沙拉、鱼籽与嫩叶", ja: "サーモン刺身、海藻サラダ、いくら、リーフ" }, price: "$18", image: salmonCarpaccioImg },
+      { name: { en: "Albacore Tuna Tataki", zh: "长鳍金枪鱼炙烤", ja: "ビンチョウマグロのタタキ" }, note: { en: "Seared with Japanese herbs & house vinaigrette", zh: "日式香草炙烤配自制醋汁", ja: "和風ハーブで炙り、自家製ビネグレット" }, price: "$18", image: albacoreTunaTatakiImg },
+      { name: { en: "Braised Mackerel with Sweet Miso", zh: "甜味噌炖鲭鱼", ja: "鯖の甘味噌煮" }, note: { en: "Wild caught, Koji-miso braised. Served with rice", zh: "野生鲭鱼、麹味噌炖煮。配米饭", ja: "天然鯖、麹味噌煮込み。ライス付き" }, price: "$15", image: braisedMackerelImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Onsen Tamago (Soft Egg)", zh: "温泉蛋", ja: "温泉卵" }, price: "$3" },
+        { name: { en: "Extra Chashu 2pc", zh: "额外叉烧2片", ja: "追加チャーシュー2枚" }, price: "$4.5" },
+      ]},
     ],
   },
   {
     title: { en: "Sashimi", zh: "刺身", ja: "刺身" },
     rows: [
-      { name: { en: "Salmon Sashimi", zh: "三文鱼刺身", ja: "サーモン刺身" }, note: { en: "7 pcs", zh: "7 片", ja: "7切れ" }, price: "$17" },
+      { name: { en: "Salmon Sashimi", zh: "三文鱼刺身", ja: "サーモン刺身" }, note: { en: "7 pcs", zh: "7 片", ja: "7切れ" }, price: "$17", image: salmon7pcImg },
       { name: { en: "Salmon & Tuna", zh: "三文鱼金枪鱼拼", ja: "サーモン＆マグロ" }, note: { en: "4 pcs salmon, 3 pcs tuna", zh: "4 片三文鱼, 3 片金枪鱼", ja: "サーモン4切れ、マグロ3切れ" }, price: "$17" },
       { name: { en: "Yellowfin Tuna Sashimi", zh: "黄鳍金枪鱼刺身", ja: "キハダマグロ刺身" }, note: { en: "7 pcs", zh: "7 片", ja: "7切れ" }, price: "$17" },
-      { name: { en: "Sashimi Moriawase", zh: "刺身拼盘", ja: "刺身盛り合わせ" }, note: { en: "Salmon, tuna & daily fresh cuts", zh: "三文鱼、金枪鱼与当日鲜切", ja: "サーモン、マグロ、日替わり鮮魚" }, price: "$37" },
+      { name: { en: "Sashimi Moriawase", zh: "刺身拼盘", ja: "刺身盛り合わせ" }, note: { en: "Salmon, tuna & daily fresh cuts", zh: "三文鱼、金枪鱼与当日鲜切", ja: "サーモン、マグロ、日替わり鮮魚" }, price: "$37", addons: [
+        { name: { en: "Uni", zh: "海胆", ja: "うに" }, price: "$10" },
+        { name: { en: "Ikura", zh: "鱼籽", ja: "いくら" }, price: "$5" },
+        { name: { en: "Grounded Real Wasabi Root", zh: "鲜磨山葵", ja: "本わさび" }, price: "$5" },
+      ]},
     ],
   },
   {
@@ -103,88 +165,164 @@ export const SECTIONS: MenuSectionData[] = [
   {
     title: { en: "Speciality Bowls", zh: "招牌盛碗", ja: "スペシャルボウル" },
     rows: [
-      { name: { en: "Chashu Don", zh: "叉烧丼", ja: "チャーシュー丼" }, note: { en: "House braised pork belly on rice", zh: "自制叉烧盖饭", ja: "自家製豚バラ煮込み丼" }, price: "$18" },
-      { name: { en: "Tempura Donburi", zh: "天妇罗丼", ja: "天丼" }, note: { en: "3 pc shrimp, 3 pc veggie tempura on rice", zh: "3 只炸虾、3 件蔬菜天妇罗盖饭", ja: "海老3尾、野菜天3個の天丼" }, price: "$20" },
-      { name: { en: "Kaisen Don", zh: "海鲜丼", ja: "海鮮丼" }, note: { en: "Salmon, yellowfin tuna, bluefin tuna & scallop", zh: "三文鱼、黄鳍金枪鱼、蓝鳍金枪鱼与扇贝", ja: "サーモン、キハダマグロ、本マグロ、帆立" }, price: "$32" },
-      { name: { en: "Salmon, Maguro, Ikura Don", zh: "三文鱼金枪鱼鱼籽丼", ja: "サーモン・マグロ・いくら丼" }, price: "$26" },
-      { name: { en: "Gyudon", zh: "牛丼", ja: "牛丼" }, note: { en: "Sliced beef & onion simmered in sweet soy", zh: "薄切牛肉与洋葱甜酱油煮", ja: "牛肉と玉ねぎを甘醤油で煮た一品" }, price: "$19" },
-      { name: { en: "Salmon Lover Don", zh: "三文鱼爱好者丼", ja: "サーモンラバー丼" }, note: { en: "Salmon sashimi & ikura on sushi rice", zh: "三文鱼刺身与鱼籽盖饭", ja: "サーモン刺身といくらの丼" }, price: "$20" },
-      { name: { en: "Bluefin Tuna Don", zh: "蓝鳍金枪鱼丼", ja: "本マグロ丼" }, note: { en: "Bluefin tuna akami & negitoro on rice", zh: "蓝鳍金枪鱼赤身与葱拖罗盖饭", ja: "本マグロ赤身とネギトロ丼" }, price: "$26" },
+      { name: { en: "Chashu Don", zh: "叉烧丼", ja: "チャーシュー丼" }, note: { en: "House braised pork belly on rice", zh: "自制叉烧盖饭", ja: "自家製豚バラ煮込み丼" }, price: "$18", image: chashuDonImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Onsen Tamago (Soft Egg)", zh: "温泉蛋", ja: "温泉卵" }, price: "$3" },
+        { name: { en: "Extra Chashu 2pc", zh: "额外叉烧2片", ja: "追加チャーシュー2枚" }, price: "$4.5" },
+      ]},
+      { name: { en: "Tempura Donburi", zh: "天妇罗丼", ja: "天丼" }, note: { en: "3 pc shrimp, 3 pc veggie tempura on rice", zh: "3 只炸虾、3 件蔬菜天妇罗盖饭", ja: "海老3尾、野菜天3個の天丼" }, price: "$20", addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Onsen Tamago (Soft Egg)", zh: "温泉蛋", ja: "温泉卵" }, price: "$3" },
+        { name: { en: "Extra Chashu 2pc", zh: "额外叉烧2片", ja: "追加チャーシュー2枚" }, price: "$4.5" },
+      ]},
+      { name: { en: "Kaisen Don", zh: "海鲜丼", ja: "海鮮丼" }, note: { en: "Salmon, yellowfin tuna, bluefin tuna & scallop", zh: "三文鱼、黄鳍金枪鱼、蓝鳍金枪鱼与扇贝", ja: "サーモン、キハダマグロ、本マグロ、帆立" }, price: "$32", image: kaisenDonImg },
+      { name: { en: "Salmon, Maguro, Ikura Don", zh: "三文鱼金枪鱼鱼籽丼", ja: "サーモン・マグロ・いくら丼" }, price: "$26", image: salmonMaguroIkuraDonImg, addons: [
+        { name: { en: "Extra Ikura", zh: "额外鱼籽", ja: "追加いくら" }, price: "$5" },
+        { name: { en: "Uni", zh: "海胆", ja: "うに" }, price: "$10" },
+        { name: { en: "Extra Salmon", zh: "额外三文鱼", ja: "追加サーモン" }, price: "$5" },
+      ]},
+      { name: { en: "Gyudon", zh: "牛丼", ja: "牛丼" }, note: { en: "Sliced beef & onion simmered in sweet soy", zh: "薄切牛肉与洋葱甜酱油煮", ja: "牛肉と玉ねぎを甘醤油で煮た一品" }, price: "$19", image: gyudonImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Onsen Tamago (Soft Egg)", zh: "温泉蛋", ja: "温泉卵" }, price: "$3" },
+        { name: { en: "Extra Chashu 2pc", zh: "额外叉烧2片", ja: "追加チャーシュー2枚" }, price: "$4.5" },
+      ]},
+      { name: { en: "Salmon Lover Don", zh: "三文鱼爱好者丼", ja: "サーモンラバー丼" }, note: { en: "Salmon sashimi & ikura on sushi rice", zh: "三文鱼刺身与鱼籽盖饭", ja: "サーモン刺身といくらの丼" }, price: "$20", image: salmonLoverDonImg },
+      { name: { en: "Bluefin Tuna Don", zh: "蓝鳍金枪鱼丼", ja: "本マグロ丼" }, note: { en: "Bluefin tuna akami & negitoro on rice", zh: "蓝鳍金枪鱼赤身与葱拖罗盖饭", ja: "本マグロ赤身とネギトロ丼" }, price: "$26", image: bluefinTunaDonImg },
       { name: { en: "Negitoro Don", zh: "葱拖罗丼", ja: "ネギトロ丼" }, note: { en: "Nakaochi tuna with green onion", zh: "金枪鱼中落与葱花", ja: "マグロ中落ちと青ネギ" }, price: "$20" },
     ],
   },
   {
     title: { en: "Ramen Noodle", zh: "拉面", ja: "ラーメン" },
     rows: [
-      { name: { en: "1 pc Chashu Ramen", zh: "单片叉烧拉面", ja: "チャーシューラーメン1枚" }, note: { en: "Tonkotsu, miso, spicy miso or black shoyu", zh: "豚骨／味噌／辣味噌／黑酱油", ja: "豚骨・味噌・辛味噌・黒醤油" }, price: "$16" },
-      { name: { en: "4 pc Chashu Ramen", zh: "四片叉烧拉面", ja: "チャーシューラーメン4枚" }, note: { en: "Tonkotsu, miso, spicy miso or black shoyu", zh: "豚骨／味噌／辣味噌／黑酱油", ja: "豚骨・味噌・辛味噌・黒醤油" }, price: "$19" },
-      { name: { en: "Veggie Ramen", zh: "蔬菜拉面", ja: "ベジラーメン" }, note: { en: "Black shoyu, miso or spicy miso", zh: "黑酱油／味噌／辣味噌", ja: "黒醤油・味噌・辛味噌" }, price: "$16" },
-      { name: { en: "Classic Yakisoba", zh: "经典日式炒面", ja: "クラシック焼きそば" }, note: { en: "No broth, BBQ sauce with chicken", zh: "无汤、烧烤酱鸡肉炒面", ja: "汁なし、BBQソースで炒めた鶏肉入り" }, price: "$18" },
+      { name: { en: "1 pc Chashu Ramen", zh: "单片叉烧拉面", ja: "チャーシューラーメン1枚" }, note: { en: "Tonkotsu, miso, spicy miso or black shoyu", zh: "豚骨／味噌／辣味噌／黑酱油", ja: "豚骨・味噌・辛味噌・黒醤油" }, price: "$16", addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "4 pc Chashu Ramen", zh: "四片叉烧拉面", ja: "チャーシューラーメン4枚" }, note: { en: "Tonkotsu, miso, spicy miso or black shoyu", zh: "豚骨／味噌／辣味噌／黑酱油", ja: "豚骨・味噌・辛味噌・黒醤油" }, price: "$19", image: fourPcChashuRamenImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "Veggie Ramen", zh: "蔬菜拉面", ja: "ベジラーメン" }, note: { en: "Black shoyu, miso or spicy miso", zh: "黑酱油／味噌／辣味噌", ja: "黒醤油・味噌・辛味噌" }, price: "$16", addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "Classic Yakisoba", zh: "经典日式炒面", ja: "クラシック焼きそば" }, note: { en: "No broth, BBQ sauce with chicken", zh: "无汤、烧烤酱鸡肉炒面", ja: "汁なし、BBQソースで炒めた鶏肉入り" }, price: "$18", image: classicYakisobaImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Onsen Tamago (Soft Egg)", zh: "温泉蛋", ja: "温泉卵" }, price: "$3" },
+        { name: { en: "Extra Chashu 2pc", zh: "额外叉烧2片", ja: "追加チャーシュー2枚" }, price: "$4.5" },
+      ]},
     ],
   },
   {
     title: { en: "Udon Noodle", zh: "乌冬面", ja: "うどん" },
     rows: [
-      { name: { en: "Basic Udon", zh: "基本乌冬", ja: "基本うどん" }, note: { en: "Marinated tofu protein", zh: "配味付豆腐", ja: "味付け豆腐入り" }, price: "$13" },
-      { name: { en: "Shrimp Tempura Udon", zh: "炸虾天妇罗乌冬", ja: "海老天うどん" }, price: "$16" },
-      { name: { en: "Vegetable Tempura Udon", zh: "蔬菜天妇罗乌冬", ja: "野菜天うどん" }, price: "$16" },
-      { name: { en: "Uni Carbonara Udon", zh: "海胆奶油乌冬", ja: "ウニカルボナーラうどん" }, note: { en: "Hokkaido uni, ikura & soft egg", zh: "北海道海胆、鱼籽与溏心蛋", ja: "北海道産ウニ、いくら、温泉卵" }, price: "$20" },
-      { name: { en: "Beef Udon", zh: "牛肉乌冬", ja: "牛うどん" }, note: { en: "Thin sliced beef & onion", zh: "薄切牛肉与洋葱", ja: "薄切り牛肉と玉ねぎ" }, price: "$19" },
+      { name: { en: "Basic Udon", zh: "基本乌冬", ja: "基本うどん" }, note: { en: "Marinated tofu protein", zh: "配味付豆腐", ja: "味付け豆腐入り" }, price: "$13", addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "Shrimp Tempura Udon", zh: "炸虾天妇罗乌冬", ja: "海老天うどん" }, price: "$16", addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "Vegetable Tempura Udon", zh: "蔬菜天妇罗乌冬", ja: "野菜天うどん" }, price: "$16", addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "Uni Carbonara Udon", zh: "海胆奶油乌冬", ja: "ウニカルボナーラうどん" }, note: { en: "Hokkaido uni, ikura & soft egg", zh: "北海道海胆、鱼籽与溏心蛋", ja: "北海道産ウニ、いくら、温泉卵" }, price: "$20", image: uniCarbonaraUdonImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Extra Broth", zh: "加汤", ja: "スープ追加" }, price: "$6" },
+        { name: { en: "Extra Noodle", zh: "加面", ja: "麺追加" }, price: "$3" },
+      ]},
+      { name: { en: "Beef Udon", zh: "牛肉乌冬", ja: "牛うどん" }, note: { en: "Thin sliced beef & onion", zh: "薄切牛肉与洋葱", ja: "薄切り牛肉と玉ねぎ" }, price: "$19", image: beefUdonImg, addons: [
+        { name: { en: "House Marinated Egg", zh: "卤溏心蛋", ja: "味付け玉子" }, price: "$2" },
+        { name: { en: "Onsen Tamago (Soft Egg)", zh: "温泉蛋", ja: "温泉卵" }, price: "$3" },
+        { name: { en: "Extra Chashu 2pc", zh: "额外叉烧2片", ja: "追加チャーシュー2枚" }, price: "$4.5" },
+      ]},
       { name: { en: "Chicken Curry Udon", zh: "鸡肉咖喱乌冬", ja: "チキンカレーうどん" }, note: { en: "Authentic Japanese curry on udon", zh: "正宗日式咖喱乌冬", ja: "本格和風カレーうどん" }, price: "$20" },
     ],
   },
   {
     title: { en: "Shinobi Rolls", zh: "忍卷", ja: "忍ロール" },
+    commonAddons: [
+      { name: { en: "With Avocado", zh: "加牛油果", ja: "アボカド追加" }, price: "$1" },
+      { name: { en: "Ginger and Wasabi", zh: "姜与芥末", ja: "生姜とわさび" }, price: "$0" },
+    ],
     rows: [
-      { name: { en: "Cucumber & Shiso", zh: "黄瓜紫苏卷", ja: "胡瓜＆紫蘇" }, price: "$11" },
-      { name: { en: "Marinated Tofu & Cucumber & Avocado", zh: "味付豆腐黄瓜牛油果卷", ja: "味付け豆腐・胡瓜・アボカド" }, price: "$12" },
+      { name: { en: "Cucumber & Shiso", zh: "黄瓜紫苏卷", ja: "胡瓜＆紫蘇" }, price: "$11", image: cucumberShisoImg },
+      { name: { en: "Marinated Tofu & Cucumber & Avocado", zh: "味付豆腐黄瓜牛油果卷", ja: "味付け豆腐・胡瓜・アボカド" }, price: "$12", image: tofuCucumberAvocadoImg },
       { name: { en: "Veggie Tempura & Avocado", zh: "蔬菜天妇罗牛油果卷", ja: "野菜天＆アボカド" }, price: "$13" },
-      { name: { en: "Avocado Salmon", zh: "牛油果三文鱼卷", ja: "アボカドサーモン" }, price: "$12.5" },
-      { name: { en: "Maguro & Shiso", zh: "金枪鱼紫苏卷", ja: "マグロ＆紫蘇" }, price: "$12.5" },
-      { name: { en: "Karaage Chicken", zh: "日式炸鸡卷", ja: "唐揚げロール" }, price: "$12.5" },
-      { name: { en: "Dynamite Roll", zh: "炸裂卷", ja: "ダイナマイトロール" }, note: { en: "Shrimp tempura, avocado, cucumber", zh: "炸虾天妇罗、牛油果、黄瓜", ja: "海老天、アボカド、胡瓜" }, price: "$12.5" },
-      { name: { en: "California Roll", zh: "加州卷", ja: "カリフォルニアロール" }, note: { en: "Crab salad, avocado, cucumber, tobiko", zh: "蟹肉沙拉、牛油果、黄瓜、飞鱼籽", ja: "カニサラダ、アボカド、胡瓜、とびこ" }, price: "$12.5" },
+      { name: { en: "Avocado Salmon", zh: "牛油果三文鱼卷", ja: "アボカドサーモン" }, price: "$12.5", image: avocadoSalmonImg },
+      { name: { en: "Maguro & Shiso", zh: "金枪鱼紫苏卷", ja: "マグロ＆紫蘇" }, price: "$12.5", image: maguroShisoImg },
+      { name: { en: "Karaage Chicken", zh: "日式炸鸡卷", ja: "唐揚げロール" }, price: "$12.5", image: karaageChickenImg },
+      { name: { en: "Dynamite Roll", zh: "炸裂卷", ja: "ダイナマイトロール" }, note: { en: "Shrimp tempura, avocado, cucumber", zh: "炸虾天妇罗、牛油果、黄瓜", ja: "海老天、アボカド、胡瓜" }, price: "$12.5", image: dynamiteRollImg },
+      { name: { en: "California Roll", zh: "加州卷", ja: "カリフォルニアロール" }, note: { en: "Crab salad, avocado, cucumber, tobiko", zh: "蟹肉沙拉、牛油果、黄瓜、飞鱼籽", ja: "カニサラダ、アボカド、胡瓜、とびこ" }, price: "$12.5", image: californiaRollImg },
       { name: { en: "Unagi Roll", zh: "鳗鱼卷", ja: "うなぎロール" }, price: "$12.5" },
-      { name: { en: "Bluefin Tuna Toro Taku Roll", zh: "蓝鳍金枪鱼拖罗卷", ja: "本マグロトロタクロール" }, note: { en: "Bluefin toro & akami with takuan & shiso", zh: "蓝鳍金枪鱼大托罗与赤身配腌萝卜", ja: "本マグロトロ・赤身、沢庵、紫蘇" }, price: "$26" },
+      { name: { en: "Bluefin Tuna Toro Taku Roll", zh: "蓝鳍金枪鱼拖罗卷", ja: "本マグロトロタクロール" }, note: { en: "Bluefin toro & akami with takuan & shiso", zh: "蓝鳍金枪鱼大托罗与赤身配腌萝卜", ja: "本マグロトロ・赤身、沢庵、紫蘇" }, price: "$26", image: bluefinToroTakuImg },
       { name: { en: "Rainbow Roll", zh: "彩虹卷", ja: "レインボーロール" }, note: { en: "Cucumber, shrimp tempura, crab topped with salmon & maguro", zh: "黄瓜、炸虾、蟹肉 topped 三文鱼金枪鱼", ja: "胡瓜、海老天、カニの上にサーモン・マグロ" }, price: "$17" },
-      { name: { en: "Negitoro", zh: "葱拖罗", ja: "ネギトロ" }, note: { en: "Bluefin tuna toro & akami roll, 8 pcs", zh: "蓝鳍金枪鱼拖罗赤身卷，8件", ja: "本マグロトロ・赤身ロール、8個" }, price: "$16" },
+      { name: { en: "Negitoro", zh: "葱拖罗", ja: "ネギトロ" }, note: { en: "Bluefin tuna toro & akami roll, 8 pcs", zh: "蓝鳍金枪鱼拖罗赤身卷，8件", ja: "本マグロトロ・赤身ロール、8個" }, price: "$16", image: negitoroImg },
     ],
   },
   {
     title: { en: "Premium Rolls", zh: "高级卷", ja: "プレミアムロール" },
+    headerImage: premiumRollsHeaderImg,
     rows: [
-      { name: { en: "Ninja Bomb Roll", zh: "忍者炸弹卷", ja: "ニンジャボムロール" }, note: { en: "Cucumber, avocado, shrimp tempura topped with salmon sashimi", zh: "黄瓜、牛油果、炸虾 topped 三文鱼刺身", ja: "胡瓜、アボカド、海老天にサーモン刺身" }, price: "$17" },
-      { name: { en: "Ninja Cali Roll", zh: "忍者加州卷", ja: "ニンジャカリロール" }, note: { en: "Cucumber, maguro, crab topped with maguro sashimi", zh: "黄瓜、金枪鱼、蟹肉 topped 金枪鱼刺身", ja: "胡瓜、マグロ、カニにマグロ刺身" }, price: "$17" },
-      { name: { en: "Ninja Star Roll", zh: "忍者之星卷", ja: "ニンジャスターロール" }, note: { en: "Cucumber, cream cheese, shrimp tempura topped with smoked salmon", zh: "黄瓜、奶油芝士、炸虾 topped 烟熏三文鱼", ja: "胡瓜、クリームチーズ、海老天にスモークサーモン" }, price: "$17" },
+      { name: { en: "Ninja Bomb Roll", zh: "忍者炸弹卷", ja: "ニンジャボムロール" }, note: { en: "Cucumber, avocado, shrimp tempura topped with salmon sashimi", zh: "黄瓜、牛油果、炸虾 topped 三文鱼刺身", ja: "胡瓜、アボカド、海老天にサーモン刺身" }, price: "$17", image: ninjaBombRollImg },
+      { name: { en: "Ninja Cali Roll", zh: "忍者加州卷", ja: "ニンジャカリロール" }, note: { en: "Cucumber, maguro, crab topped with maguro sashimi", zh: "黄瓜、金枪鱼、蟹肉 topped 金枪鱼刺身", ja: "胡瓜、マグロ、カニにマグロ刺身" }, price: "$17", image: ninjaCaliRollImg },
+      { name: { en: "Ninja Star Roll", zh: "忍者之星卷", ja: "ニンジャスターロール" }, note: { en: "Cucumber, cream cheese, shrimp tempura topped with smoked salmon", zh: "黄瓜、奶油芝士、炸虾 topped 烟熏三文鱼", ja: "胡瓜、クリームチーズ、海老天にスモークサーモン" }, price: "$17", image: ninjaStarRollImg },
       { name: { en: "3 Kind Premium Roll Set", zh: "高级卷三种拼盘", ja: "プレミアムロール3種盛り" }, note: { en: "All 3 premium rolls at a discount", zh: "三种高级卷优惠组合", ja: "3種のプレミアムロールをお得に" }, price: "$48" },
     ],
   },
   {
     title: { en: "Shinobi Roll Tray", zh: "卷物拼盘", ja: "ロールトレイ" },
     rows: [
-      { name: { en: "House Selected 24 pcs", zh: "主厨精选 24 件", ja: "オーナー厳選 24個" }, note: { en: "Cucumber & shiso, salmon, yuzu crab", zh: "黄瓜紫苏、三文鱼、柚子蟹", ja: "胡瓜紫蘇、サーモン、柚子カニ" }, price: "$30" },
-      { name: { en: "House Selected 48 pcs", zh: "主厨精选 48 件", ja: "オーナー厳選 48個" }, note: { en: "Cucumber & shiso, salmon, maguro, shrimp tempura, yuzu crab, chicken", zh: "六种口味精选拼盘", ja: "6種類の厳選ロール" }, price: "$60" },
-      { name: { en: "Veggie 24 pcs Tray", zh: "蔬菜拼盘 24 件", ja: "ベジトレイ 24個" }, note: { en: "Cucumber & shiso, marinated tofu, veggie tempura & avocado", zh: "三款素食卷拼盘", ja: "3種のベジタブルロール" }, price: "$33" },
+      { name: { en: "House Selected 24 pcs", zh: "主厨精选 24 件", ja: "オーナー厳選 24個" }, note: { en: "Cucumber & shiso, salmon, yuzu crab", zh: "黄瓜紫苏、三文鱼、柚子蟹", ja: "胡瓜紫蘇、サーモン、柚子カニ" }, price: "$30", image: houseSelected24Img, addons: [
+        { name: { en: "All with Avocado", zh: "全加牛油果", ja: "全品アボカド入り" }, price: "$3" },
+        { name: { en: "Grounded Real Wasabi Root", zh: "鲜磨山葵", ja: "本わさび" }, price: "$5" },
+      ]},
+      { name: { en: "House Selected 48 pcs", zh: "主厨精选 48 件", ja: "オーナー厳選 48個" }, note: { en: "Cucumber & shiso, salmon, maguro, shrimp tempura, yuzu crab, chicken", zh: "六种口味精选拼盘", ja: "6種類の厳選ロール" }, price: "$60", image: houseSelected48Img, addons: [
+        { name: { en: "All with Avocado", zh: "全加牛油果", ja: "全品アボカド入り" }, price: "$6" },
+        { name: { en: "Grounded Real Wasabi Root", zh: "鲜磨山葵", ja: "本わさび" }, price: "$5" },
+      ]},
+      { name: { en: "Veggie 24 pcs Tray", zh: "蔬菜拼盘 24 件", ja: "ベジトレイ 24個" }, note: { en: "Cucumber & shiso, marinated tofu, veggie tempura & avocado", zh: "三款素食卷拼盘", ja: "3種のベジタブルロール" }, price: "$33", image: veggie24TrayImg, addons: [
+        { name: { en: "All with Avocado", zh: "全加牛油果", ja: "全品アボカド入り" }, price: "$3" },
+        { name: { en: "Grounded Real Wasabi Root", zh: "鲜磨山葵", ja: "本わさび" }, price: "$5" },
+      ]},
       { name: { en: "Popular 24 pcs Tray", zh: "人气拼盘 24 件", ja: "人気トレイ 24個" }, note: { en: "Avocado salmon, dynamite, maguro & shiso", zh: "三款人气卷拼盘", ja: "人気3種ロール" }, price: "$35" },
       { name: { en: "Popular 48 pcs Tray", zh: "人气拼盘 48 件", ja: "人気トレイ 48個" }, note: { en: "Avocado salmon, dynamite, maguro & shiso, california, ninja bomb, chicken", zh: "六款人气卷拼盘", ja: "人気6種ロール" }, price: "$72" },
     ],
   },
   {
     title: { en: "Pressed Sushi", zh: "押寿司", ja: "押し寿司" },
+    commonAddons: [
+      { name: { en: "Uni", zh: "海胆", ja: "うに" }, price: "$10" },
+      { name: { en: "Ikura", zh: "鱼籽", ja: "いくら" }, price: "$5" },
+      { name: { en: "Grounded Real Wasabi Root", zh: "鲜磨山葵", ja: "本わさび" }, price: "$5" },
+    ],
     rows: [
-      { name: { en: "Torched Salmon", zh: "炙烤三文鱼押寿司", ja: "炙りサーモン押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$19.5" },
-      { name: { en: "Torched Japanese Scallop", zh: "炙烤扇贝押寿司", ja: "炙り帆立押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$20" },
-      { name: { en: "Ebi with Yuzu Sauce", zh: "柚子酱鲜虾押寿司", ja: "柚子ソース海老押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$19.5" },
-      { name: { en: "Maguro Pressed Sushi", zh: "金枪鱼押寿司", ja: "マグロ押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$19.5" },
+      { name: { en: "Torched Salmon", zh: "炙烤三文鱼押寿司", ja: "炙りサーモン押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$19.5", image: torchedSalmonImg },
+      { name: { en: "Torched Japanese Scallop", zh: "炙烤扇贝押寿司", ja: "炙り帆立押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$20", image: torchedScallopImg },
+      { name: { en: "Ebi with Yuzu Sauce", zh: "柚子酱鲜虾押寿司", ja: "柚子ソース海老押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$19.5", image: ebiYuzuImg },
+      { name: { en: "Maguro Pressed Sushi", zh: "金枪鱼押寿司", ja: "マグロ押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$19.5", image: maguroPressedImg },
       { name: { en: "Unagi & Sansho Pepper", zh: "鳗鱼花椒押寿司", ja: "うなぎ山椒押し寿司" }, note: { en: "6 pcs", zh: "6 件", ja: "6貫" }, price: "$20" },
     ],
   },
   {
     title: { en: "Party Platter", zh: "派对拼盘", ja: "パーティープラッター" },
+    commonAddons: [
+      { name: { en: "Uni", zh: "海胆", ja: "うに" }, price: "$10" },
+      { name: { en: "Ikura", zh: "鱼籽", ja: "いくら" }, price: "$5" },
+      { name: { en: "Grounded Real Wasabi Root", zh: "鲜磨山葵", ja: "本わさび" }, price: "$5" },
+    ],
     rows: [
-      { name: { en: "Aburi Sushi Platter", zh: "炙寿司拼盘", ja: "炙り寿司プラッター" }, note: { en: "42 pcs — Wagyu, torched salmon, unagi & more. 3h notice", zh: "42 件—和牛、炙烤三文鱼、鳗鱼等。需3小时预订", ja: "42個—和牛、炙りサーモン、うなぎ等。3時間前予約" }, price: "$100" },
-      { name: { en: "Variety Sushi Platter", zh: "综合寿司拼盘", ja: "バラエティ寿司プラッター" }, note: { en: "Nigiri, pressed sushi & rolls — 40+ pcs", zh: "握寿司、押寿司与卷物 40+ 件", ja: "握り、押し寿司、ロール 40個以上" }, price: "$100" },
-      { name: { en: "Pressed Sushi Platter", zh: "押寿司拼盘", ja: "押し寿司プラッター" }, note: { en: "48 pcs — 6 kinds of pressed sushi", zh: "48 件—6 种押寿司", ja: "48個—6種の押し寿司" }, price: "$95" },
+      { name: { en: "Aburi Sushi Platter", zh: "炙寿司拼盘", ja: "炙り寿司プラッター" }, note: { en: "42 pcs — Wagyu, torched salmon, unagi & more. 3h notice", zh: "42 件—和牛、炙烤三文鱼、鳗鱼等。需3小时预订", ja: "42個—和牛、炙りサーモン、うなぎ等。3時間前予約" }, price: "$100", image: aburiPlatterImg },
+      { name: { en: "Variety Sushi Platter", zh: "综合寿司拼盘", ja: "バラエティ寿司プラッター" }, note: { en: "Nigiri, pressed sushi & rolls — 40+ pcs", zh: "握寿司、押寿司与卷物 40+ 件", ja: "握り、押し寿司、ロール 40個以上" }, price: "$100", image: varietyPlatterImg },
+      { name: { en: "Pressed Sushi Platter", zh: "押寿司拼盘", ja: "押し寿司プラッター" }, note: { en: "48 pcs — 6 kinds of pressed sushi", zh: "48 件—6 种押寿司", ja: "48個—6種の押し寿司" }, price: "$95", image: pressedPlatterImg },
     ],
   },
 ];

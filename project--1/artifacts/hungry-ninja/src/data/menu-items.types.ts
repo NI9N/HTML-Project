@@ -9,13 +9,22 @@ export type FeaturedItem = {
   tag?: "popular" | "new";
 };
 
+export type MenuAddon = {
+  name: Loc;
+  price: string;
+};
+
 export type MenuRow = {
   name: Loc;
   note?: Loc;
   price?: string;
+  image?: string;
+  addons?: MenuAddon[];
 };
 
 export type MenuSectionData = {
   title: Loc;
   rows: MenuRow[];
+  headerImage?: string;
+  commonAddons?: MenuAddon[];
 };

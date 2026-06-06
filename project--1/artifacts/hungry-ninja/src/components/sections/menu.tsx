@@ -1,12 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { NorenDivider } from "../decorative";
-import type { Lang } from "@/data/menu-items.types";
+import type { Lang, MenuSectionData } from "@/data/menu-items.types";
 import { FEATURED, SECTIONS } from "@/data/menu-items";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.4, delay: i * 0.05 },
+  }),
 };
 
 const goldWavePattern = `url("data:image/svg+xml,${encodeURIComponent(
@@ -33,6 +41,103 @@ const goldWavePattern = `url("data:image/svg+xml,${encodeURIComponent(
     <path d="M0 250 C80 250,170 290,250 290 C330 290,420 250,500 250" fill="none" stroke="url(#g2)" stroke-width="1" />
   </svg>`
 )}")`;
+
+function SectionCard({ row, lang }: { row: MenuSectionData["rows"][number]; lang: Lang }) {
+  const hasImage = !!row.image;
+  const hasAddons = !!row.addons && row.addons.length > 0;
+
+  return (
+    <div
+      className="flex rounded-lg overflow-hidden border border-[#D4A847]/10 bg-[#0D0D0D]/40 hover:border-[#D4A847]/30 transition-all duration-300"
+    >
+      {hasImage && (
+        <div className="w-24 md:w-28 shrink-0 overflow-hidden">
+          <img
+            src={row.image}
+            alt={row.name[lang]}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      <div className={`flex-1 flex flex-col justify-center p-3 md:p-4 ${hasImage ? "" : "py-4"}`}>
+        <div className="flex justify-between items-start gap-2">
+          <span className="text-[#FAF8F4] font-medium text-sm md:text-base leading-tight">
+            {row.name[lang]}
+          </span>
+          {row.price && (
+            <span className="font-bold text-[#D4A847] text-sm md:text-base whitespace-nowrap shrink-0">{row.price}</span>
+          )}
+        </div>
+        {row.note && (
+          <span className="text-[#FAF8F4]/50 text-xs md:text-sm mt-0.5">{row.note[lang]}</span>
+        )}
+        {hasAddons && (
+          <div className="flex flex-wrap gap-x-1.5 gap-y-0.5 mt-1.5">
+            {row.addons!.map((a) => (
+              <span key={a.name.en} className="text-[#D4A847]/60 text-[10px] md:text-xs whitespace-nowrap">
+                +{a.name[lang]} {a.price}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SectionGroup({ section, lang }: { section: MenuSectionData; lang: Lang }) {
+  const hasHeaderImg = !!section.headerImage;
+  const hasCommonAddons = !!section.commonAddons && section.commonAddons.length > 0;
+
+  return (
+    <div className="pb-8 last:pb-0">
+      {/* Decorative header image */}
+      {hasHeaderImg && (
+        <div className="relative w-full h-32 md:h-44 rounded-xl overflow-hidden mb-5">
+          <img
+            src={section.headerImage}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/40 to-transparent" />
+          <h4 className="absolute bottom-3 left-4 font-serif font-bold text-xl md:text-2xl text-[#FAF8F4]">
+            {section.title[lang]}
+          </h4>
+        </div>
+      )}
+      {!hasHeaderImg && (
+        <h4 className="font-serif font-bold text-xl text-[#D4A847] mb-4 pb-2 border-b-2 border-[#D4A847]/30">
+          {section.title[lang]}
+        </h4>
+      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {section.rows.map((row, i) => (
+          <motion.div
+            key={row.name.en}
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05 }}
+            variants={cardVariants}
+          >
+            <SectionCard row={row} lang={lang} />
+          </motion.div>
+        ))}
+      </div>
+      {hasCommonAddons && (
+        <div className="mt-3 text-center">
+          <span className="text-[#D4A847]/40 text-xs">
+            {section.commonAddons!.map((a) => (
+              <span key={a.name.en}>
+                +{a.name[lang]} {a.price}{" "}
+              </span>
+            ))}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function MenuSection() {
   const { t, i18n } = useTranslation();
@@ -100,40 +205,16 @@ export function MenuSection() {
           ))}
         </motion.div>
 
-        {/* Full menu price list */}
+        {/* Full menu */}
         <div className="text-center mb-12">
           <h3 className="font-serif font-bold text-3xl text-[#FAF8F4] mb-3">{t("menu.fullMenuTitle")}</h3>
           <p className="text-[#FAF8F4]/60">{t("menu.fullMenuSubtitle")}</p>
         </div>
 
         <div className="bg-[#0D0D0D]/20 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-[#D4A847]/10 max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
-            {SECTIONS.map((section) => (
-              <div key={section.title.en}>
-                <h4 className="font-serif font-bold text-xl text-[#D4A847] mb-5 pb-2 border-b-2 border-[#D4A847]/30">
-                  {section.title[lang]}
-                </h4>
-                <ul className="space-y-3">
-                  {section.rows.map((row) => (
-                    <li key={row.name.en} className="flex items-baseline gap-3">
-                      <span className="text-[#FAF8F4] font-medium">
-                        {row.name[lang]}
-                        {row.note && (
-                          <span className="text-[#FAF8F4]/50 font-normal text-sm"> · {row.note[lang]}</span>
-                        )}
-                      </span>
-                      <span className="flex-1 border-b border-dotted border-[#D4A847]/40 translate-y-[-3px]" />
-                      {row.price ? (
-                        <span className="font-bold text-[#D4A847] whitespace-nowrap">{row.price}</span>
-                      ) : (
-                        <span className="font-normal text-[#FAF8F4]/50 text-sm whitespace-nowrap">{t("menu.askPrice")}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          {SECTIONS.map((section) => (
+            <SectionGroup key={section.title.en} section={section} lang={lang} />
+          ))}
         </div>
 
         <p className="text-center text-[#FAF8F4]/40 text-sm mt-16 max-w-2xl mx-auto">
