@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "wouter";
 import { useCart } from "@/context/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -94,8 +95,9 @@ export function CartButton() {
   );
 }
 
-export function CartPanel() {
+export function CartPanel({ onOrderSubmit }: { onOrderSubmit?: () => void }) {
   const { items, updateQty, removeItem, clearCart, total, totalItems, isOpen, setIsOpen } = useCart();
+  const [, navigate] = useLocation();
 
   return (
     <AnimatePresence>
@@ -200,18 +202,21 @@ export function CartPanel() {
                     ${total.toFixed(2)}
                   </span>
                 </div>
-                <div className="bg-[#1B2A4A]/8 rounded-xl p-3 text-center">
-                  <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">
-                    Show this list to your server when you arrive. Prices may vary.
-                  </p>
+                <div className="flex flex-col gap-3">
+                  <button
+                    onClick={() => { setIsOpen(false); onOrderSubmit?.(); }}
+                    className="w-full py-3 rounded-xl bg-[#D4A847] text-[#0D0D0D] font-bold text-base hover:bg-[#E8C35A] transition-colors active:scale-[0.98]"
+                  >
+                    Submit Order
+                  </button>
+                  <button
+                    onClick={clearCart}
+                    className="w-full flex items-center justify-center gap-2 text-sm text-[#1A1A1A]/40 hover:text-[#D42B2B] transition-colors py-1"
+                  >
+                    <TrashIcon size={14} />
+                    Clear order
+                  </button>
                 </div>
-                <button
-                  onClick={clearCart}
-                  className="w-full flex items-center justify-center gap-2 text-sm text-[#1A1A1A]/40 hover:text-[#D42B2B] transition-colors py-1"
-                >
-                  <TrashIcon size={14} />
-                  Clear order
-                </button>
               </div>
             )}
           </motion.div>
