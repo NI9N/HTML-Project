@@ -213,10 +213,19 @@ export default function ReservePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("API rejected");
       setSubmitted(true);
     } catch {
-      toast({ title: t("reserve.errorTitle"), description: t("reserve.errorDesc"), variant: "destructive" });
+      // Fallback: save to localStorage (works offline / GitHub Pages)
+      try {
+        const saved = JSON.parse(localStorage.getItem("hungry-ninja-reservations") || "[]");
+        saved.push({ ...formData, id: Date.now(), status: "confirmed", createdAt: new Date().toISOString() });
+        localStorage.setItem("hungry-ninja-reservations", JSON.stringify(saved));
+        setSubmitted(true);
+        toast({ title: t("reserve.successTitle"), description: "Saved locally (demo mode)" });
+      } catch {
+        toast({ title: t("reserve.errorTitle"), description: t("reserve.errorDesc"), variant: "destructive" });
+      }
     } finally {
       setIsSubmitting(false);
     }

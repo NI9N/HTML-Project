@@ -178,8 +178,8 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm">{t("footer.rights")}</p>
           <div className="flex gap-6 text-sm text-white/50">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <span className="text-white/30 cursor-default">Privacy Policy</span>
+            <span className="text-white/30 cursor-default">Terms of Service</span>
           </div>
         </div>
       </div>

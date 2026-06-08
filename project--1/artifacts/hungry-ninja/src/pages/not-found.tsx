@@ -1,21 +1,26 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { useLocation } from "wouter";
+import { motion } from "framer-motion";
 
 export default function NotFound() {
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-background">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
-          </div>
+  const [, navigate] = useLocation();
 
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+  return (
+    <div className="min-h-screen bg-[#1A1A1A] flex items-center justify-center px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="text-center max-w-md"
+      >
+        <h1 className="font-serif font-black text-7xl text-[#D4A847] mb-4">404</h1>
+        <p className="text-white/60 text-lg mb-8">Page not found. The ninja slipped away.</p>
+        <button
+          onClick={() => navigate("/")}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4A847] text-[#0D0D0D] rounded-xl font-bold hover:bg-[#E8C35A] transition-colors"
+        >
+          Back to Home
+        </button>
+      </motion.div>
     </div>
   );
 }
