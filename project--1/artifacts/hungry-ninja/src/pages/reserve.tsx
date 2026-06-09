@@ -207,16 +207,28 @@ export default function ReservePage() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-      const res = await fetch(`${base}/api/reservations`, {
+      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          service_id: "service_1waw47m",
+          template_id: "template_clv0ay2",
+          user_id: "nUu_JU11NEHQkImEY",
+          template_params: {
+            date: formData.date ?? "",
+            time: formData.time ?? "",
+            partySize: String(formData.partySize ?? ""),
+            name: formData.name ?? "",
+            email: formData.email ?? "",
+            phone: formData.phone ?? "",
+            notes: formData.notes ?? "",
+          },
+        }),
       });
-      if (!res.ok) throw new Error("API rejected");
       setSubmitted(true);
+      toast({ title: t("reserve.successTitle"), description: t("reserve.successDesc") });
     } catch {
-      // Fallback: save to localStorage (works offline / GitHub Pages)
+      // Fallback: save to localStorage (works offline)
       try {
         const saved = JSON.parse(localStorage.getItem("hungry-ninja-reservations") || "[]");
         saved.push({ ...formData, id: Date.now(), status: "confirmed", createdAt: new Date().toISOString() });
