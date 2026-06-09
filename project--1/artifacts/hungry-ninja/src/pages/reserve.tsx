@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -178,8 +178,32 @@ export default function ReservePage() {
   const [dir, setDir] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
+  const cooldownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const [formData, setFormData] = useState<Partial<FullForm>>({ partySize: 2 });
+
+  // 60-second cooldown to prevent rapid re-submissions
+  useEffect(() => {
+    if (cooldown > 0) {
+      cooldownRef.current = setInterval(() => {
+        setCooldown(prev => {
+          if (prev <= 1) {
+            clearInterval(cooldownRef.current!);
+            cooldownRef.current = null;
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => {
+      if (cooldownRef.current) {
+        clearInterval(cooldownRef.current);
+        cooldownRef.current = null;
+      }
+    };
+  }, [cooldown > 0]);
 
   const step1Form = useForm<z.infer<typeof step1Schema>>({
     resolver: zodResolver(step1Schema),
@@ -211,9 +235,9 @@ export default function ReservePage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          service_id: "service_1waw47m",
-          template_id: "template_clv0ay2",
-          user_id: "nUu_JU11NEHQkImEY",
+          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
           template_params: {
             date: formData.date ?? "",
             time: formData.time ?? "",
@@ -225,6 +249,7 @@ export default function ReservePage() {
           },
         }),
       });
+      setCooldown(60);
       setSubmitted(true);
       toast({ title: t("reserve.successTitle"), description: t("reserve.successDesc") });
     } catch {
@@ -556,9 +581,9 @@ export default function ReservePage() {
                     </Button>
                     <Button
                       onClick={handleSubmit}
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || cooldown > 0}
                       className="flex-1 bg-primary hover:bg-[#B02222] text-white font-bold py-6 rounded-xl shadow-[0_4px_20px_rgba(212,43,43,0.35)] hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60">
-                      {isSubmitting ? t("reserve.submitting") : t("reserve.submit")}
+                      {isSubmitting ? t("reserve.submitting") : cooldown > 0 ? `${t("reserve.submit")} (${cooldown}s)` : t("reserve.submit")}
                     </Button>
                   </div>
                 </div>
