@@ -231,13 +231,13 @@ export default function ReservePage() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID ?? "service_1waw47m",
+          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? "template_clv0ay2",
+          user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? "nUu_JU11NEHQkImEY",
           template_params: {
             date: formData.date ?? "",
             time: formData.time ?? "",
@@ -249,6 +249,7 @@ export default function ReservePage() {
           },
         }),
       });
+      if (!res.ok) throw new Error(`EmailJS: ${res.status}`);
       setCooldown(60);
       setSubmitted(true);
       toast({ title: t("reserve.successTitle"), description: t("reserve.successDesc") });
