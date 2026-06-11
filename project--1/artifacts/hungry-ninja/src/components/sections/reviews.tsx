@@ -172,6 +172,16 @@ export function Reviews() {
             </a>
             <span className="text-white/20">|</span>
             <a
+              href="https://www.facebook.com/p/Pink-Ninja-Izakaya-61571865793969/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-facebook"
+              className="inline-flex items-center gap-1 text-sm text-white/40 hover:text-white/70 transition-colors"
+            >
+              Facebook <ExternalLink size={12} />
+            </a>
+            <span className="text-white/20">|</span>
+            <a
               href="https://restaurantguru.com/Hungry-Ninja-Stratford-Ontario/reviews"
               target="_blank"
               rel="noopener noreferrer"

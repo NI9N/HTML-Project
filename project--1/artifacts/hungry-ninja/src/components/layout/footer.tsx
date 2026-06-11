@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Phone, Instagram, Utensils, ShoppingBag, Car, CreditCard, Accessibility } from "lucide-react";
+import { MapPin, Clock, Phone, Instagram, Facebook, Utensils, ShoppingBag, Car, CreditCard, Accessibility } from "lucide-react";
 import { LanternIcon } from "../decorative";
 
 function TikTokIcon({ size = 20 }: { size?: number }) {
@@ -25,7 +25,8 @@ export function Footer() {
   const MAPS_SIMPLE_URL =
     "https://maps.google.com/?q=46+Ontario+St,+Stratford,+ON+N5A+1A1";
   const PHONE_NUMBER = "+12265841630";
-  const INSTAGRAM_URL = "https://www.instagram.com/hungryninjastratford/";
+  const FACEBOOK_URL = "https://www.facebook.com/p/Pink-Ninja-Izakaya-61571865793969/";
+  const INSTAGRAM_URL = "https://www.instagram.com/pinkninja_izakaya/";
   const TIKTOK_URL = "https://www.tiktok.com/@hungryninja.stratford";
 
   return (
@@ -53,6 +54,16 @@ export function Footer() {
               {t("footer.tagline")}
             </p>
             <div className="flex gap-4">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                data-testid="link-facebook"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <Facebook size={20} />
+              </a>
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
