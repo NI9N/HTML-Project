@@ -177,9 +177,9 @@ export function SplashScreen({ onFinish }: SplashScreenProps) {
         <motion.div
           className="absolute h-[3px]"
           style={{
-            top: "72%",
+            top: "85%",
             left: "0%",
-            transform: "rotate(-28deg)",
+            transform: "rotate(-22deg)",
             transformOrigin: "left center",
             background: "linear-gradient(90deg, transparent 0%, rgba(255,215,0,0.6) 10%, rgba(255,255,255,1) 50%, rgba(255,215,0,0.6) 90%, transparent 100%)",
             boxShadow: "0 0 25px 8px rgba(255,215,0,0.5)",
