@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { NorenDivider } from "../decorative";
 import { AddItemModal, type ModalItem } from "../add-item-modal";
-import type { Lang, MenuAddon, MenuSectionData } from "@/data/menu-items.types";
+import type { Lang, MenuSectionData } from "@/data/menu-items.types";
 import { FEATURED, SECTIONS } from "@/data/menu-items";
 
 const sectionVariants = {
@@ -225,9 +225,9 @@ function FeaturedCard({ item, lang, onAdd }: {
 }
 
 export function MenuSection() {
-  const { t, i18n } = useTranslation();
-  const base = i18n.language.split("-")[0];
-  const lang = (["en", "zh", "ja"].includes(base) ? base : "en") as Lang;
+  const { t } = useTranslation();
+  // 菜单内容始终显示英文（餐馆老板/店员看），UI 标题仍随语言切换
+  const lang = "en" as Lang;
   const [modalItem, setModalItem] = useState<ModalItem | null>(null);
   const [modalCommonAddons, setModalCommonAddons] = useState<MenuSectionData["commonAddons"]>(undefined);
 
