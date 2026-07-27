@@ -68,10 +68,12 @@ export function AddItemModal({
         id: comboId,
         baseId: item.itemId,
         name: item.name[lang],
+        nameEn: item.name.en,
         price: item.price || "$0",
         priceNum: unitPriceNum,
         addons: selected.map((a) => ({
           name: a.name[lang],
+          nameEn: a.name.en,
           price: a.price,
           priceNum: parseFloat(a.price.replace(/[^0-9.]/g, "")),
         })),

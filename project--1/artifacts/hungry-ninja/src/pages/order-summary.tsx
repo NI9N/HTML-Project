@@ -60,7 +60,7 @@ export default function OrderSummary() {
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="font-bold text-[#1A1A1A] text-base">{item.name}</h3>
+                      <h3 className="font-bold text-[#1A1A1A] text-base">{item.nameEn ?? item.name}</h3>
                       <p className="text-sm text-gray-400 mt-0.5">Qty: {item.qty}</p>
                     </div>
                     <span className="font-bold text-lg text-[#1A1A1A] whitespace-nowrap ml-4">
@@ -71,7 +71,7 @@ export default function OrderSummary() {
                     <ul className="mt-2 space-y-0.5">
                       {item.addons.map((a, i) => (
                         <li key={i} className="flex items-center gap-2 text-sm text-[#D4A847]/80 pl-3 border-l-2 border-[#D4A847]/30">
-                          <span>+ {a.name}</span>
+                          <span>+ {a.nameEn ?? a.name}</span>
                           <span className="text-gray-400">{a.price}</span>
                         </li>
                       ))}

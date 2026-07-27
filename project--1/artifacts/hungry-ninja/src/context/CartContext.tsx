@@ -20,6 +20,7 @@ function saveCart(items: CartItem[]) {
 
 export type CartItemAddon = {
   name: string;
+  nameEn?: string;  // 英文名，OrderSummary 显示用
   price: string;
   priceNum: number;
 };
@@ -28,6 +29,7 @@ export type CartItem = {
   id: string;
   baseId: string;
   name: string;
+  nameEn?: string;  // 英文名，OrderSummary 显示用
   price: string;
   priceNum: number;
   qty: number;
