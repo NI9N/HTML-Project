@@ -22,6 +22,12 @@ function getNavLogoRect(): DOMRect | null {
   return el.getBoundingClientRect();
 }
 
+/** Wait for an <img> element to finish loading (or fail) */
+function waitForImg(el: HTMLImageElement): Promise<void> {
+  if (el.complete) return Promise.resolve();
+  return new Promise((r) => { el.onload = () => r(); el.onerror = () => r(); });
+}
+
 export function SplashScreen({ onFinish }: SplashScreenProps) {
   const controls = useAnimationControls();
   const logoRef = useRef<HTMLDivElement>(null);
@@ -42,12 +48,19 @@ export function SplashScreen({ onFinish }: SplashScreenProps) {
   useEffect(() => {
     requestAnimationFrame(async () => {
       if (!logoRef.current) return;
+
+      // Wait for the logo <img> to finish loading so dimensions are correct
+      const logoImg = logoRef.current.querySelector<HTMLImageElement>('img');
+      if (logoImg) await waitForImg(logoImg);
+
+      if (!mountedRef.current) return;
+
       const rect = logoRef.current.getBoundingClientRect();
       const navRect = getNavLogoRect();
 
       if (!navRect) {
         setBgVisible(true);
-        controls.set({ x: 0, y: 0, scale: 1 });
+        controls.set({ x: 0, y: 0, scale: 1, opacity: 0 });
         await new Promise((r) => setTimeout(r, 500));
         setHidden(true);
         onFinish();
@@ -58,8 +71,8 @@ export function SplashScreen({ onFinish }: SplashScreenProps) {
       const x = (navRect.left + navRect.width / 2) - (rect.left + rect.width / 2);
       const y = (navRect.top + navRect.height / 2) - (rect.top + rect.height / 2);
 
-      // Place at navbar
-      controls.set({ x, y, scale, rotate: 0 });
+      // Place at navbar (explicit opacity for framer-motion controls)
+      controls.set({ x, y, scale, rotate: 0, opacity: 0 });
       setBgVisible(true);
 
       // Wait for bg to fade in
