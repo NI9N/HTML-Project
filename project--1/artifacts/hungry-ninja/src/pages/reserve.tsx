@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { LanternIcon } from "@/components/decorative";
 import { useToast } from "@/hooks/use-toast";
+import Turnstile from "@/components/Turnstile";
 
 const TIME_SLOTS = [
   "11:30", "12:00", "12:30", "13:00", "13:30",
@@ -179,6 +180,7 @@ export default function ReservePage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const cooldownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const [formData, setFormData] = useState<Partial<FullForm>>({ partySize: 2 });
@@ -216,7 +218,7 @@ export default function ReservePage() {
   });
 
   const goNext = () => { setDir(1); setStep(s => s + 1); };
-  const goPrev = () => { setDir(-1); setStep(s => s - 1); };
+  const goPrev = () => { setDir(-1); setStep(s => s - 1); setTurnstileToken(null); };
 
   const handleStep1 = step1Form.handleSubmit((data) => {
     setFormData(prev => ({ ...prev, ...data }));
@@ -312,7 +314,7 @@ export default function ReservePage() {
           </p>
           <p className="text-white/40 text-sm mb-8">{t("reserve.successDesc")}</p>
           <div className="flex gap-3 justify-center">
-            <Button onClick={() => { setSubmitted(false); setStep(0); setFormData({ partySize: 2 }); step1Form.reset(); step2Form.reset(); }}
+            <Button onClick={() => { setSubmitted(false); setStep(0); setFormData({ partySize: 2 }); setTurnstileToken(null); step1Form.reset(); step2Form.reset(); }}
               className="bg-primary hover:bg-[#B02222] text-white font-bold px-6">
               {t("reserve.another")}
             </Button>
@@ -575,6 +577,13 @@ export default function ReservePage() {
                     {t("reserve.callNote")}
                   </div>
 
+                  <div className="flex justify-center py-2">
+                    <Turnstile
+                      siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                      onVerify={setTurnstileToken}
+                    />
+                  </div>
+
                   <div className="flex gap-3">
                     <Button type="button" onClick={goPrev} variant="outline"
                       className="flex-1 border-white/15 text-white/60 hover:text-white hover:bg-white/8 hover:border-white/30 py-6 rounded-xl font-bold flex items-center justify-center gap-2">
@@ -582,7 +591,7 @@ export default function ReservePage() {
                     </Button>
                     <Button
                       onClick={handleSubmit}
-                      disabled={isSubmitting || cooldown > 0}
+                      disabled={isSubmitting || cooldown > 0 || !turnstileToken}
                       className="flex-1 bg-primary hover:bg-[#B02222] text-white font-bold py-6 rounded-xl shadow-[0_4px_20px_rgba(212,43,43,0.35)] hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60">
                       {isSubmitting ? t("reserve.submitting") : cooldown > 0 ? `${t("reserve.submit")} (${cooldown}s)` : t("reserve.submit")}
                     </Button>

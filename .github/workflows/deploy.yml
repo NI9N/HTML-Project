@@ -29,7 +29,7 @@ jobs:
 
       - name: Build
         working-directory: project--1/artifacts/hungry-ninja
-        run: PORT=3000 BASE_PATH=/HTML-Project/ pnpm exec vite build --config vite.config.ts
+        run: PORT=3000 BASE_PATH=/HTML-Project/ VITE_TURNSTILE_SITE_KEY=0x4AAAAAAEAAiO7dIfHqMVUC pnpm exec vite build --config vite.config.ts
 
       - name: Copy 404.html for SPA routing
         run: cp project--1/artifacts/hungry-ninja/dist/public/index.html project--1/artifacts/hungry-ninja/dist/public/404.html
